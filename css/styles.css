@@ -217,15 +217,9 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 }
 
 .half_chart {
-	height: 40vw;
 	width: 40vw;
 	display: inline-block;
 	min-height: 750px;
-}
-
-p.half_chart_legend {
-	width: 35vw;
-	font-size: 12px;
 }
 
 .full_chart {
@@ -238,14 +232,29 @@ p.half_chart_legend {
 	width: 80vw;
 }
 
-.full_chart, .full_chart_legend_div, #map, #map-navigation {
+.half_chart_legend_div {
+	width: 40vw;
+}
+
+.full_chart, .full_chart_legend_div, .half_chart_legend_div, #map, #map-navigation {
 	display: inline-block;
 	vertical-align: top;
 }
 
 p.full_chart_legend {
 	width: 80vw;
-	font-size: 12px;
+	font-size: 10px;
+	font-weight: 200;
+	padding: 0px 0px 0px 30px;
+	text-align: top;
+}
+
+p.half_chart_legend {
+	width: 35vw;
+	font-size: 10px;
+	font-weight: 200;
+	padding: 0px 0px 0px 30px;
+	text-align: top;
 }
 
 p.top {
