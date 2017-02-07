@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<head>
+	<title>About OTP</title>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="robots" content="NOODP" />
+	
+	<link rel="icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="img/favicon.png">
+	
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic|Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+	<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+</head>
+<body>
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+	<nav class="mast" role="navigation">
+		<div class="mast-wrapper">
+			<div class="logo">
+				<a href="http://www.trimet.org"><img src="img/index.svg" width="185" height="42" class="mast-logo"></a>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="standardheader">
+		<p class="breadcrumb"><a href="http://www.trimet.org">Home</a> : <a href="index.html">MOD Sandbox</a> : <a href="about.html">About OTP</a></p>
+		<h1>About OpenTripPlanner</h1>
+		
+		<div class="first">
+			<p>OpenTripPlanner (OTP) is an Open Source, Multi-Modal Trip Planning System collaboratively developed by a team of developers from across the world and coordinated by OpenPlans and TriMet. The OTP Project was initially funded through the Metro 2009-2011 Regional Travel Options Grant.</p>
+		</div>
+	</div>
+
+	<div class="section">
+		<p>TriMet&rsquo;s older text-based trip planner was a proprietary transit trip planner, providing transit trip itineraries with limited walking instructions; however, customers frequently requested the ability to plan multi-modal trips, such as the ability to bike to transit. Similarly, Google Maps is capable of planning several different single-mode trips (transit or driving or walking or biking), however, it cannot plan a trip consisting of multiple modes. The ability to plan multi-modal trips, a combination of transit, walking, and biking, and to bring as much information as possible into one central location allowed commuters to make informed decisions about their transportation choices while encouraging sustainable modes and decreasing the number of drive-alone vehicle trips. Commercial off-the-shelf solutions were cost prohibitive for TriMet and many US transit agencies, and open source, multi-modal trip planners were relatively new to the market and lacked a strong user and developer base and a sustainable support model.</p>
+		
+		<p>TriMet was interested in bringing interested parties together to collaborate on an open source multi-modal trip planning system that would not only meet TriMet&rsquo;s increasing needs, but could potentially be a viable alternative for other agencies. TriMet partnered with OpenPlans, a non-profit organization that specializes in open source software and civic projects, and several other developers, on applying for a Metro Regional Travel Options (RTO) Grant in 2008 to begin work on an open source, multi-modal trip planner, which came to be known as the OpenTripPlanner. OpenPlans was responsible from the outset to lead the technical development of the project, to facilitate a strong development community around the code, and to provide a sustainable business model around the software to ensure there are maintenance and support options for agencies.</p>
+		
+		<ul class="anchor tight">
+			<li><a href="./docs/OTP Final Report - Metro 2009-2011 RTO Grant.pdf" download="OTP Final Report - Metro 2009-2011 RTO Grant.pdf">Download a copy of the OTP Final Report for the 2009-2011 grant (2.65 MB).</a></li>
+			<li><a href="http://www.opentripplanner.org/">Visit the OTP website and view the code.</a></li>
+		</ul>
+        
+        <p class="top"><a href="index.html" class="nav_link">Return to Dashboard</a></p>
+	</div>
+	
+	<div class="section headerbar" id="partners">
+		<h2 class="strata">Partnerships and Deployments</h2>
+	</div>
+
+	<div class="section">
+		<div class="map-container">
+			<p>
+			<div id="map-navigation">
+				<nav id="filters" class="filter-ui"></nav>
+			</div>
+			<div id="partnerstext">
+			</div>
+			<div class="custom-popup" id="map">
+				<script>
+				L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
+				var map = L.mapbox.map('map')
+					.setView([23, 2], 2)
+					.addLayer(L.mapbox.tileLayer('mapbox.light'));
+				
+				var filters = document.getElementById('filters');
+				var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
+				var partners = document.getElementById('partnerstext');
+				
+				markers.addTo(map);
+				
+				markers.on('ready', function(e) {
+					var typesObj = {},
+					types = [];
+					var features = e.target._geojson.features;
+					for (var i = 0; i < features.length; i++) {
+						typesObj[features[i].properties['status']] = true;
+					}
+					for (var key in typesObj) {
+						if ({}.hasOwnProperty.call(typesObj, key)) {
+							types.push(key);
+						}
+					}
+					
+					var checkboxes = [];
+					for (var j = 0; j < types.length; j++) {
+						var item = filters.appendChild(document.createElement('div'));
+						var checkbox = item.appendChild(document.createElement('input'));
+						var label = item.appendChild(document.createElement('label'));
+						checkbox.type = 'checkbox';
+						checkbox.id = types[j];
+						checkbox.checked = true;
+						label.innerHTML = types[j];
+						label.setAttribute('for', types[j]);
+						checkbox.addEventListener('change', update);
+						checkboxes.push(checkbox);
+					}
+
+					for (var i = 0; i < features.length; i++) {
+						var pbox = partners.appendChild(document.createElement('div'));
+						var pboxtext = pbox.appendChild(document.createElement('p'));
+						let title = features[i].properties['title'];
+						let desc = features[i].properties['description'];
+						let text_color = features[i].properties['marker-color'];
+						let partner_status = features[i].properties['status'];
+						pbox.style.cursor = 'pointer';
+						pbox.id = String(features[i].geometry['coordinates']) + text_color;
+						pbox.class = partner_status.replace(" ", "-");
+						let longitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[0]);
+						let latitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[1]);
+						document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
+							map.setView([latitude, longitude], 15);
+							var popup = L.popup()
+								.setLatLng([latitude + 0.001, longitude])
+								.setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + "</p>")
+								.openOn(map);
+						});
+						if (features[i].properties.hasOwnProperty('url')) {
+							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc + '<br><a href="' + features[i].properties['url'] + '">' + features[i].properties['url'] + '</a>';
+						} else {
+							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc.slice(0, desc.indexOf(",")) + "<br>" + desc.slice(desc.indexOf(",") + 1, desc.length);
+						}
+					}
+					
+					function update() {
+						var enabled = {};
+						for (var k = 0; k < checkboxes.length; k++) {
+							if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
+						}
+						markers.setFilter(function(feature) {
+							return feature.properties['status'] in enabled;
+						});
+					}
+				});
+			</script>
+			</div>
+		</div>
+		<p class="top"><a href="index.html" class="nav_link">Return to Dashboard</a></p>
+	</div>
+
+	<div class="section headerbar" id="partners">
+		<h2 class="strata">January 18-19, 2017 Workshop Kickoff</h2>
+	</div>
+	
+	<div class="section">
+		<p>On January 18th and 19th, TriMet hosted a workshop to kickoff the MOD Sandbox project that drew over forty participants. Over the two-day workshop, participants worked in breakout sessions on the following topics (click to view the notes from that session):</p>
+		<br>
+		<div class="chart_container">
+			<div class="workshops"><a href="https://drive.google.com/open?id=1xigOJ4Cm_kaTEe5I9-r-LWsBPaRVSSyeBAX3RuGiXa4" target="_blank">Geocoding - Integration with new OTP/Trimet Website</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1LOjFIOq7CLEBW7y9Xcqe7uR2pv1qAs0P413CtG7UGwc" target="_blank">Fares/Incentives in OTP</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1lGnPjxzBQK6suTD73T3i-72os0CqqhoxYpZVE_ExR5o" target="_blank">Routing Engine - Flex+SUM+RT+Accessibility</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1Dy3LLUFkqSEKQwd9jHssZCKuXNwM83Du0rs331lABhg" target="_blank">UI/UX - Flex+SUM+RT+Accessibility</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1Dy3LLUFkqSEKQwd9jHssZCKuXNwM83Du0rs331lABhg" target="_blank">UI/UX - Integration with Trimet</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1q-EVISCMcfymw96O3lJJzzQ8pLETX5_ZUnMvXo-KRp0" target="_blank">OTP Infrastructure and Build Management Decisions</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1k-Dj32z9ykQbalDIOiEIkZoq3SHpBEdgLEIVchk4884" target="_blank">OTP Web Services/Middle Tier</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1Dy3LLUFkqSEKQwd9jHssZCKuXNwM83Du0rs331lABhg" target="_blank">UI/UX - Journeys and Scenarios/ Testing Process</a></div>
+		</div>
+		<br>
+		<br>
+		<p>The presentations by our key partners are available below:</p>
+		<br>
+		<br>
+		<div class="chart_container">
+			<div class="presentations"><a href="https://drive.google.com/open?id=1gv2eHgkqwFrQfudgaGWbF9ylMK2FItSauRRHiuwoGaw" target="_blank"><img src="./img/trimet_kickoff.jpg" height="270px" width="480px"></a></div>
+			<div class="presentations"><a href="https://drive.google.com/open?id=1gxKQEbFokq01TvgJCqjqQbml1FZvmannvniUOOvR7XU" target="_blank"><img src="./img/conveyal_kickoff.jpg" height="270px" width="480px"></a></div>
+			<div class="presentations"><a href="https://drive.google.com/open?id=1yTHUEdSP6GhmAzRwqVb-Tpiq1oTuOYPEZdVK9czR-PA" target="_blank"><img src="./img/moovel_kickoff.jpg" height="270px" width="480px"></a></div>
+			<div class="presentations"><a href="https://drive.google.com/open?id=1KuzAcDWzMkz2ZNi-QLod5CxWW--AiGelNZGIJoUJVwQ" target="_blank"><img src="./img/trillium_kickoff.jpg" height="300px" width="480px"></a></div>
+			<div class="presentations"><a href="https://drive.google.com/open?id=1CcaNq307ODsLKATQRJyQAaMAHJuDniQz55DaU-vNM08" target="_blank"><img src="./img/ibi_kickoff.jpg" height="360px" width="480px"></a></div>
+		</div>
+		
+		<div class="chart_container">
+		</div>
+		
+		<p class="top"><a href="index.html" class="nav_link">Return to Dashboard</a></p>
+	</div>
+	
+    <div class="section">
+		<div class="footer">
+			<div class="footer-left">
+				<div style="padding: 30px 30px 5px 30px;">
+					<a href="/">
+						<i class="icon icon-slogan icon-trimet-logo-slogan"></i>
+					</a>
+				</div>
+				
+				<div class="footer-bottom">
+					&copy; 2017 TriMet
+					 &bull;
+					<a href="http://trimet.org/legal/index.htm">Terms of Use</a>
+					 &bull;
+					<a href="http://trimet.org/legal/privacy.htm">Privacy Policy</a>
+					 &bull;
+					<a href="http://trimet.org/about/index.htm">About Us</a>
+					 &bull;
+					<a href="http://trimet.org/contact/index.htm">Customer Service</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

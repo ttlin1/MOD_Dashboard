@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+	<title>MOD Sandbox Dashboard</title>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="robots" content="NOODP" />
+	
+	<link rel="icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="img/favicon.png">
+	
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic|Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+	<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  // Add smooth scrolling to all links
+	  $("a.nav_link ").on('click', function(event) {
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+		  // Prevent default anchor click behavior
+		  event.preventDefault();
+		  // Store hash
+		  var hash = this.hash;
+		  // Using jQuery's animate() method to add smooth page scroll
+		  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		  $('html, body').animate({
+			scrollTop: $(hash).offset().top
+		  }, 800, function(){
+	   
+			// Add hash (#) to URL when done scrolling (default click behavior)
+			window.location.hash = hash;
+		  });
+		} // End if
+	  });
+	});
+	</script>
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body id="top">
+	<nav class="mast" role="navigation">
+		<div class="mast-wrapper">
+			<div class="logo">
+				<a href="http://www.trimet.org"><img src="img/index.svg" width="185" height="42" class="mast-logo"></a>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="standardheader">
+		<p class="breadcrumb"><a href="http://www.trimet.org">Home</a> : <a href="index.html">MOD Sandbox</a></p>
+		<h1>MOD Sandbox Dashboard: <small>February 2016</small></h1>
+		
+		<div class="first">
+			<p>TriMet&rsquo;s OTP SUM project will create a complete open platform for the integration of transit and shared-use mobility options.  The open data, software and user interfaces, responsive on both web and mobile, will help customers make informed decisions about their mobility choices, including the critical first and last miles of transit trips where a bus or train alone doesn&rsquo;t provide full access.</p>
+		</div>
+	</div>
+
+	<div class="section">
+		<p>Updated weekly, this dashboard provides a snapshot of the MOD Sandbox project&rsquo;s progress. These key indicators help us track progress toward project deliverables and the budget.  In addition, we will be sharing project updates and lessons learned through this dashboard.</p>
+	</div>
+
+	<div class="section">
+		<ul class="anchor tight">
+			<li><a href="about.html">About OTP</a></li>
+            <li><a href="about_pelias.html">About Pelias</a></li>
+			<li><a href="#progress" class="nav_link">Progress</a></li>
+			<li><a href="#budget" class="nav_link">Budget</a></li>
+			<li><a href="#management" class="nav_link">Project Management</a></li>
+			<li><a href="#evaluations" class="nav_link">Evaluation and Metrics</a></li>
+			<!-- <li><a href="#lessons" class="nav_link">Lessons Learned</a></li> -->
+		</ul>
+	</div>
+
+	<div class="section headerbar" id="progress">
+		<h2 class="strata">Progress</h2>
+	</div>
+
+	<div class="section">
+		<p>TriMet’s proposed project includes the development and expansion of two core data frameworks that current and future collaborative OTP initiatives can be built upon, producing replicable software and results for communities across the country. These two foundational core project elements are to:</p>
+		<ul class="bullets">
+			<li>Extend the Open Trip Planner code base to support the integration of transit trip planning with shared-use mobility modes, such as bike share and transportation network companies (TNCs), as well as updated real-time transit information.</li>
+			<br \>
+			<li>Implement a fully functional and comprehensive open geocoder built off the existing Mapzen Pelias geocoder.</li>
+		</ul>
+		
+		<div class="section">
+			<div class="chart_container">
+				<div class="full_chart">
+					<embed class="full_chart" src="https://plot.ly/~mosteele/25.embed?autosize=True&link=false&modebar=false&logo=false">
+				</div>
+				<div class="full_chart_legend_div">
+					<p class=full_chart_legend>Chart description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+				<p class="top"><a href="#top" class="nav_link">Top</a></p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="section headerbar" id="budget">
+		<h2 class="strata">Budget</h2>
+	</div>
+
+	<div class="section">	
+		<div class="chart_container">
+			<div class="half_chart">
+				<embed class="half_chart" src="https://plot.ly/~mosteele/7.embed?autosize=True&link=false&modebar=false&logo=false">
+				<p class="half_chart_legend">Chart description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="half_chart">
+				<embed class="half_chart" src="https://plot.ly/~mosteele/23.embed?autosize=True&link=false&modebar=false&logo=false">
+				<p class="half_chart_legend">Chart description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>			
+		</div>
+		<p class="top"><a href="#top" class="nav_link">Top</a></p>
+	</div>
+
+	<div class="section headerbar" id="management">
+		<h2 class="strata">Project Management</h2>
+	</div>
+
+	<div class="section">
+		<p>We use Trello as a team To-Do list and as a place to keep track of meetings. Follow along with us through the Trello board below.</p>
+		<div class="trello_board">
+			<embed class="trello_board" src="https://trello.com/b/rJ3RAeVr.html">
+		</div>
+        
+		<div class="trello_board">
+			<p>Project documents are shared through Google Drive. You will need permissions to view the files below.</p>
+			<embed class="trello_board" src="https://drive.google.com/embeddedfolderview?id=0B1jz7f2gE4K5dnlUQUFDcXVCVTQ#list" frameborder="0">
+		</div>
+		
+        <div class="section">
+			<p></p>
+        	<p>Upcoming Meetings and Agenda</p>
+            <ul class="bullets large-font-size">
+            	<li>Sunday, February 5, 2017 at 3:30 pm - Super Bowl | <a href="./docs/020517 Agenda.docx">Agenda</a></li>
+            	<li>Monday, February 20, 2017 - President's Day | <a href="./docs/020517 Agenda.docx">Agenda</a></li>
+          	</ul>
+            
+            <ul class="anchor tight">
+                <li><a href="./calendar/Test.ics" download="Test.ics">Download the calendar (iCalendar).</a></li>
+                <li><a href="./calendar/Test.pst" download="Test.pst">Download the calendar (Outlook).</a></li>
+            </ul>
+		</div>
+		<p class="top"><a href="#top" class="nav_link">Top</a></p>
+	</div>
+	
+	<div class="section headerbar" id="evaluations">
+		<h2 class="strata">Evaluations and Metrics</h2>
+	</div>
+
+	<div class="section">
+		<div class="chart_container">
+			<div class="half_chart">
+				<embed class="half_chart" src="https://plot.ly/~mosteele/7.embed?autosize=True&link=false&modebar=false&logo=false">
+				<p class="half_chart_legend">Chart description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="half_chart">
+				<embed class="half_chart" src="https://plot.ly/~mosteele/5.embed?autosize=True&link=false&modebar=false&logo=false">
+				<p class="half_chart_legend">Chart description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>			
+		</div>
+		<p class="top"><a href="#top" class="nav_link">Top</a></p>
+	</div>
+	
+<!-- 	<div class="section headerbar" id="lessons">
+		<h2 class="strata">Lessons Learned</h2>
+	</div>
+
+	<div class="section">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		
+		<p class="top"><a href="#top" class="nav_link">Top</a></p>
+	</div> -->
+	
+	<div class="section">
+		<div class="footer">
+			<div class="footer-left">
+				<div style="padding: 30px 30px 5px 30px;">
+					<a href="/">
+						<i class="icon icon-slogan icon-trimet-logo-slogan"></i>
+					</a>
+				</div>
+				
+				<div class="footer-bottom">
+					&copy; 2017 TriMet
+					 &bull;
+					<a href="http://trimet.org/legal/index.htm">Terms of Use</a>
+					 &bull;
+					<a href="http://trimet.org/legal/privacy.htm">Privacy Policy</a>
+					 &bull;
+					<a href="http://trimet.org/about/index.htm">About Us</a>
+					 &bull;
+					<a href="http://trimet.org/contact/index.htm">Customer Service</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
