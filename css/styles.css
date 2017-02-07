@@ -129,9 +129,9 @@ body {
 	width: 80vw;
 	font-size: 18px;
 	font-weight: 300;
-	line-height: 1.5;
 	font-family: Merriweather,Georgia,serif;
 	margin: 0 auto;
+	padding-bottom: 25px;
 }
 
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
@@ -220,6 +220,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 	height: 40vw;
 	width: 40vw;
 	display: inline-block;
+	min-height: 750px;
 }
 
 p.half_chart_legend {
@@ -230,6 +231,7 @@ p.half_chart_legend {
 .full_chart {
 	width: 80vw;
 	height: 35vw;
+	min-height: 750px;
 }
 
 .full_chart_legend_div {
@@ -296,12 +298,15 @@ p.top a:hover {
 	color: #000;
 }
 
-.trello_board {
+.drive_board, .trello_board {
 	width: 80vw;
 	height: 735px;
 	margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
+}
+
+.drive_board {
+	height: 840px;
 }
 
 .board-canvas {

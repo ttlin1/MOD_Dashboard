@@ -15,7 +15,7 @@ h2, h3{ page-break-after: avoid; }
 .hide-on-print { display: none !important; }
 .print-only { display: block !important; }
 
-.mast, .breadcrumb, .anchor, .trello_board, .footer, .top {
+.mast, .breadcrumb, .anchor, .trello_board, .drive_board, .footer, .top {
 	display: none;
 }
 
@@ -34,11 +34,9 @@ body h1, h2, p {
 }
 
 .full_chart {
-	width: 7.25in;
-	height: 7in;
+	min-height: 10in;
 }
 
 .half_chart {
-	width: 3.5in;
-	height: 3in;
+	min-height: 5.25in;
 }
