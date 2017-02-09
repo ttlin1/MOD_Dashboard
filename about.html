@@ -119,15 +119,16 @@
 						pbox.class = partner_status.replace(" ", "-");
 						let longitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[0]);
 						let latitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[1]);
+						let url_path = features[i].properties['url'];
 						document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
 							map.setView([latitude, longitude], 15);
 							var popup = L.popup()
 								.setLatLng([latitude + 0.001, longitude])
-								.setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + "</p>")
+								.setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '" target="_blank">' + url_path + '</a></p>')
 								.openOn(map);
 						});
-						if (features[i].properties.hasOwnProperty('url')) {
-							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc + '<br><a href="' + features[i].properties['url'] + '">' + features[i].properties['url'] + '</a>';
+						if (url_path !== "" ) {
+							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '">' + url_path + '</a>';
 						} else {
 							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc.slice(0, desc.indexOf(",")) + "<br>" + desc.slice(desc.indexOf(",") + 1, desc.length);
 						}
@@ -138,11 +139,14 @@
 						for (var k = 0; k < checkboxes.length; k++) {
 							if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
 						}
+						
 						markers.setFilter(function(feature) {
 							return feature.properties['status'] in enabled;
 						});
 					}
 				});
+				
+				
 			</script>
 			</div>
 		</div>

@@ -17,10 +17,11 @@ h2, h3{ page-break-after: avoid; }
 
 .mast, .breadcrumb, .anchor, .trello_board, .drive_board, .footer, .top {
 	display: none;
+	height: 0pt;
 }
 
-body h1, h2, p {
-	font-size: 12pt;
+body {
+	font-size: 12pt Georgia, "Times New Roman", Times, serif;
 }
 
 .strata h2 {
@@ -33,10 +34,13 @@ body h1, h2, p {
 	padding: 0pt;
 }
 
-.full_chart {
-	min-height: 10in;
+embed {
+	visibility: hidden;
+	height: 0pt;
 }
 
-.half_chart {
-	min-height: 5.25in;
+#gantt {
+	content: url("https://plot.ly/~mosteele/25.png");
+	max-width: 500px;
+	display: block;
 }

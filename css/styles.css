@@ -131,7 +131,6 @@ body {
 	font-weight: 300;
 	font-family: Merriweather,Georgia,serif;
 	margin: 0 auto;
-	padding-bottom: 25px;
 }
 
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
@@ -217,9 +216,13 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 }
 
 .half_chart {
-	width: 40vw;
+	width: 39vw;
 	display: inline-block;
 	min-height: 750px;
+}
+
+.left {
+	padding-right: 2vw;
 }
 
 .full_chart {
@@ -474,6 +477,7 @@ div.workshops:hover, #partnerstext div:hover {
 #partnerstext p {
 	width: 100%;
 	font-size: 12px;
+	padding: 0px;
 }
 
 #partnerstext a {

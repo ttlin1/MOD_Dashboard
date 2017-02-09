@@ -12,7 +12,8 @@
     "description":"641 S St NW - 3rd Floor, Washington, D.C. 20001",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner"
+    "status":"Mod Sandbox Key Partner",
+	"url":""
     }
   },
   {
@@ -26,7 +27,8 @@
     "description":"201 Spear St, San Francisco, CA 94105",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner"
+    "status":"Mod Sandbox Key Partner",
+	"url":""
     }
   },
   {
@@ -40,7 +42,8 @@
     "description":"600 NE Grand Ave, Portland, OR 97232",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner"
+    "status":"Mod Sandbox Key Partner",
+	"url":""
     }
   },
   {
@@ -54,7 +57,8 @@
     "description":"209 NW 4th Ave #200, Portland, OR 97209",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner"
+    "status":"Mod Sandbox Key Partner",
+	"url":""
     }
   },
   {
@@ -68,7 +72,8 @@
     "description":"55 St. Clair Avenue West 7th Floor, Toronto ON M4V 2Y7",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner"
+    "status":"Mod Sandbox Key Partner",
+	"url":""
     }
   },
   {
@@ -82,7 +87,8 @@
     "description":"1800 SW 1st Ave #300, Portland, OR 97201",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner"
+    "status":"Mod Sandbox Key Partner",
+	"url":""
     }
   },
   {
@@ -95,7 +101,8 @@
     "title":"Regional Transportation District",
     "description":"1600 Blake Street, Denver, CO 80202",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
   {
@@ -108,7 +115,8 @@
     "title":"Santa Clara Valley Transportation Authority",
     "description":"3331 North First Street, San Jose, CA 95134",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
   {
@@ -121,7 +129,8 @@
     "title":"Trillium Transit (VTrans)",
     "description":"610 SW Broadway Suite 308, Portland, OR 97205",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
   {
@@ -134,7 +143,8 @@
     "title":"Portland Bureau of Transportation",
     "description":"1120 SW Fifth Ave Suite 800, Portland, OR 97204",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
   {
@@ -147,7 +157,8 @@
     "title":"AC Transit",
     "description":"1600 Franklin Street, Oakland, CA 94612",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
   {
@@ -160,7 +171,8 @@
     "title":"LA Metro",
     "description":"One Gateway Plaza, Los Angeles, CA 90012",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
   {
@@ -173,7 +185,8 @@
     "title":"Center for Urban Transportation Research - University of South Florida",
     "description":"3808 USF Alumni Drive, Tampa, Fl, 33620-5375",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
   {
@@ -184,9 +197,10 @@
     },
     "properties": {
     "title":"BART",
-    "description":"300 Lakeside Drive, 18th Floor, Oakland, CA 94612",
+    "description":"300 Lakeside Drive - 18th Floor, Oakland, CA 94612",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency"
+    "status":"Partner Transit Agency",
+	"url":""
     }
   },
     {
@@ -199,7 +213,8 @@
     "title":"Uber",
     "description":"1455 Market St #400, San Francisco, CA 94103",
     "marker-color":"#9cf",
-    "status":"Data Provider"
+    "status":"Data Provider",
+	"url":""
     }
   },
   {
@@ -212,7 +227,8 @@
     "title":"Lyft",
     "description":"185 Berry St, San Francisco, CA 94107",
     "marker-color":"#9cf",
-    "status":"Data Provider"
+    "status":"Data Provider",
+	"url":""
     }
   },
   {
@@ -225,7 +241,8 @@
     "title":"Biketown/Motivate",
     "description":"5202 Third Avenue, Brooklyn, NY 11220",
     "marker-color":"#9cf",
-    "status":"Data Provider"
+    "status":"Data Provider",
+	"url":""
     }
   },
   {
@@ -239,7 +256,7 @@
     "description":"Albany, NY 12232",
     "marker-color":"#333",
     "status":"Official OTP Deployment",
-	"url":"http://511ny.org/tripplanner/default.aspx"
+	"url":"https://www.511ny.org/"
     }
   },
   {
@@ -337,7 +354,7 @@
     "description":"Poznań, Poland",
     "marker-color":"#333",
     "status":"Official OTP Deployment",
-	"url":"http://ztm.poznan.pl/planer"
+	"url":"http://poznan.iplaner.pl/"
     }
   },
   {
@@ -351,7 +368,7 @@
     "description":"Lublin, Poland",
     "marker-color":"#333",
     "status":"Official OTP Deployment",
-	"url":"http://lublin.iplaner.pl/"
+	"url":"https://www.ztm.lublin.eu/"
     }
   },
   {
@@ -463,7 +480,7 @@
     "description":"Birmingham, Alabama",
     "marker-color":"#777",
     "status":"Unofficial OTP Deployment",
-	"url":"http://www.bjctatripplanner.org/"
+	"url":"https://www.bjcta.org/"
     }
   },
   {
