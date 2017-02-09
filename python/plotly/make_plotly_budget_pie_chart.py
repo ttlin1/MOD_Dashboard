@@ -23,89 +23,60 @@ df.rename(columns=col_name_dict, inplace=True)
 df['MOD_budgeted'].replace({0: np.nan})
 df['In_kind_budgeted'].replace({0: np.nan})
 
-# Calculate new fields
-df['MOD_remaining'] = df['MOD_budgeted'] - df['MOD_spent']
-df['In_kind_remaining'] = df['In_kind_budgeted'] - df['In_kind_spent']
-df['MOD_spent_pct'] = df['MOD_spent'] / df['MOD_budgeted']
-df['MOD_remaining_pct'] = df['MOD_remaining'] / df['MOD_budgeted']
-df['In_kind_spent_pct'] = df['In_kind_spent'] / df['In_kind_budgeted']
-df['In_kind_remaining_pct'] = df['In_kind_remaining'] / df['In_kind_budgeted']
+# Reverse sorting makes the categories draw in correct order
+df.sort_index(ascending=False, inplace=True)
+
+mod_tasks = df['Task'].apply(lambda x: x.split(": ")[-1]) + ' (MOD)'
+ik_tasks = df['Task'].apply(lambda x: x.split(": ")[-1]) + ' (In Kind)'
+tasks = mod_tasks.append(ik_tasks)
+budgeted = df['MOD_budgeted'].append(df['In_kind_budgeted'])
+
+pie_df = pd.concat([tasks, budgeted], axis=1)
+pie_df.sort_index(ascending=True, inplace=True)
+pie_df.columns = ['Task', 'USD']
+pie_df = pie_df[pie_df['USD'] != 0]
+pie_df['pct'] = pie_df['USD'] / pie_df['USD'].sum()
+pie_df['pct'] = pie_df['pct'].apply(lambda x: '{0:.1f}%'.format(x*100))
+
+# Create task list with html line breaks
+tasks = pie_df['Task'].apply(lambda x: x.split(": ")[-1])
+tasks = tasks.apply(lambda x: "<br>".join(textwrap.wrap(x, width=20)))
 
 
-## Reverse sorting makes the categories draw in correct order
-#df.sort_index(ascending=False, inplace=True)
-#
-## Create task list with html line breaks
-#tasks = df['Task'].apply(lambda x: x.split(": ")[-1])
-#tasks = tasks.apply(lambda x: "<br>".join(textwrap.wrap(x, width=12)))
-#
-#
-#def format_pct(x):
-#    out_str = ' (' + '{0:.1%}'.format(x) + ')'
-#    out_str = out_str.replace('nan', '0')
-#    return out_str
-#
-## Create plotly trace objects
-#trace1 = go.Bar(
-#    y=tasks,
-#    x=df['MOD_spent'],
-#    name='MOD Grant Expenses (Spent)',
-#    text=df['MOD_spent_pct'].apply(format_pct),
-#    hoverinfo='x+text',
-#    orientation='h',
-#    marker=dict(
-#        color='rgba(0, 92, 40, 0.7)',
-#    )
-#)
-#trace2 = go.Bar(
-#    y=tasks,
-#    x=df['MOD_remaining'],
-#    name='MOD Grant Expenses (Remaining)',
-#    text=df['MOD_remaining_pct'].apply(format_pct),
-#    hoverinfo='x+text',
-#    orientation='h',
-#    marker=dict(
-#        color='rgba(0, 92, 40, 0.4)',
-#    )
-#)
-#trace3 = go.Bar(
-#    y=tasks,
-#    x=df['In_kind_spent'],
-#    name='In Kind Contributions (Spent)',
-#    text=df['In_kind_spent_pct'].apply(format_pct),
-#    hoverinfo='x+text',
-#    orientation='h',
-#    marker=dict(
-#        color='rgba(8, 76, 141, 0.7)',
-#    )
-#)
-#trace4 = go.Bar(
-#    y=tasks,
-#    x=df['In_kind_remaining'],
-#    name='In Kind Contributions (Remaining)',
-#    text=df['In_kind_remaining_pct'].apply(format_pct),
-#    hoverinfo='x+text',
-#    orientation='h',
-#    marker=dict(
-#        color='rgba(8, 76, 141, 0.4)',
-#    )
-#)
-#
-#data = [trace1, trace2, trace3, trace4]
-#layout = go.Layout(
-#    barmode='stack',
-#    showlegend=True,
-#    legend=dict(
-#        x=0.7,
-#        y=1,
-#        traceorder='normal'
-#    ),
-#    yaxis=dict(fixedrange=True),
-#    xaxis=dict(tickprefix='$', tickformat='0,000', fixedrange=True),
-#    margin=dict(b=80, l=90, r=80, pad=5, t=100)
-#)
-#
-#fig = go.Figure(data=data, layout=layout)
-#
-#plotly.offline.plot(fig)
-## plotly.plotly.iplot(fig, filename='MOD-budget-pie')
+# 5F6FC2 = old version of color 3
+colors = ['#BD7CB4', '#DAADD4', '#6677D0', '#7D89CB', '#56C4C5', '#82DDDD',
+          '#ADD68A', '#CEEAB7', '#FCC777', '#FFD89E', '#FFB19F', '#999999']
+
+money_text = pie_df['USD'].apply(lambda x: '${:,}'.format(x))\
+
+trace1 = {
+  "direction": "clockwise",
+  "hoverinfo": "label+text+percent",
+  "labels": tasks,
+  "marker": {
+    "colors": ["#BD7CB4", "#DAADD4", "#6E80E0", "#95A3EE", "#56C4C5",
+               "#82DDDD", "#ADD68A", "#CEEAB7", "#FCC777", "#FFD89E",
+               "#FFB19F", "#999999"],
+  },
+  "showlegend": False,
+  "sort": False,
+  "text": money_text,
+  "textinfo": "label+percent",
+  "textposition": "outside",
+  "type": "pie",
+  "values": pie_df['USD']
+}
+data = go.Data([trace1])
+layout = {"margin": {
+                    "r": 120,
+                    "l": 145,
+                    "t": 160
+                    },
+          "title": "MOD Grant Budget"
+          }
+fig = go.Figure(data=data, layout=layout)
+
+
+plotly.offline.plot(fig)
+plotly.plotly.iplot(fig, filename='MOD-budget-pie')
+
