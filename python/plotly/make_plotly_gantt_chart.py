@@ -18,8 +18,8 @@ def to_unix_time(dt):
     epoch = datetime.datetime.utcfromtimestamp(0)
     return (dt - epoch).total_seconds() * 1000
 
-dir = os.path.dirname(os.path.dirname(__file__))
-gantt_csv = os.path.join(dir, 'csv/mod_grant_gantt2.csv')
+dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+gantt_csv = os.path.join(dir, 'csv/mod_grant_gantt.csv')
 df = pd.read_csv(gantt_csv)
 
 # This plotly function does most othe work but it not too
@@ -31,10 +31,11 @@ fig = FF.create_gantt(df, colors=['#7AB4ED', '#042E56'],
                       showgrid_x=True,
                       showgrid_y=True,
                       height=750,
+                      width=1188,
                       tasks='Resource',
                       data='Resource',
                       task_names='Resource',
-                      group_tasks=True
+                      #group_tasks=True
                       )
 
 margin_dict = {
@@ -46,7 +47,8 @@ margin_dict = {
     }
 
 fig['layout']['margin'] = margin_dict
-# fig['layout']['title'] = 'TriMet MOD Grant Gantt Chart'
+#fig['layout']['font'] = dict(family='Merriweather')
+fig['layout']['title'] = 'TriMet MOD Grant Gantt Chart'
 del fig['layout']['title']
 fig['data'][-1].items()[0][1]["colorbar"] = {"title": "Percent Complete"}
 fig['layout']['hovermode'] = 'y'
@@ -75,7 +77,7 @@ for i in range(0, len(df)):
         if 'dummy' not in df['Task'][i]:
             bold_task_labels.append(
                     dict(
-                        x=-.01,
+                        x=-.005,
                         y=len(df) - i - 1,
                         xanchor='right',
                         xref='paper',
@@ -93,6 +95,6 @@ for i in range(0, len(df)):
 fig['layout']['annotations'] = bold_task_labels
 
 plotly.offline.plot(fig)
-#plotly.plotly.iplot(fig,
-#                    filename='MOD_Grant_gantt_chart',
-#                    world_readable=True)
+plotly.plotly.iplot(fig,
+                    filename='MOD_Grant_gantt_chart',
+                    world_readable=True)

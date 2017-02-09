@@ -95,6 +95,7 @@ data = [trace1, trace2, trace3, trace4]
 layout = go.Layout(
     barmode='stack',
     showlegend=True,
+    title='MOD Grant Spent and Remaining Funds',
     legend=dict(
         x=0.7,
         y=1,
@@ -102,10 +103,10 @@ layout = go.Layout(
     ),
     yaxis=dict(fixedrange=True),
     xaxis=dict(tickprefix='$', tickformat='0,000', fixedrange=True),
-    margin=dict(b=80, l=90, r=80, pad=5, t=100)
+    margin=dict(b=80, l=90, r=80, pad=5, t=160)
 )
 
 fig = go.Figure(data=data, layout=layout)
 
 plotly.offline.plot(fig)
-# plotly.plotly.iplot(fig, filename='MOD-budget-h-bar')
+plotly.plotly.iplot(fig, filename='MOD-budget-h-bar')
