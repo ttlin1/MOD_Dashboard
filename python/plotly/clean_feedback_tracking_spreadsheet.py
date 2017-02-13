@@ -47,7 +47,7 @@ def find_day_type(x):
     return day_type
 
 
-def extract_trip_url(x):
+def get_trip_url(x):
     # just keeping the last (earliest) trimet url in the email content
     if isinstance(x, (str, unicode)):
         urls = re.findall(('http[s]?://(?:[a-zA-Z]|[0-9]|[#$-_@.&+]|' +
@@ -85,7 +85,8 @@ def get_trip_date_type(x):
     trip_date_type = ''
     if isinstance(trip_url, (str, unicode)):
         urls = re.findall(('http[s]?://(?:[a-zA-Z]|[0-9]|[#$-_@.&+]|' +
-                           '[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'), trip_url)
+                           '[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'),
+                          trip_url)
         trimet_urls = list(x for x in urls if "trimet.org/#" in x)
         if len(trimet_urls) > 0:
             # print trimet_urls[-1]
@@ -113,9 +114,10 @@ holidays, mlk_days = get_holidays(fb_df['Date Received'])
 
 # The extract_trip_url function only works for the text trip planner, and there
 # are so few map trip planner urls that it was faster to just do them by hand
-no_maptripplanner = fb_df[fb_df['Source of Feedback '] != 'maptripplanner@trimet.org']
-fb_df['Trip URL (no date)'] = no_maptripplanner['Email Content'].apply(extract_trip_url)
-fb_df['Trip date type'] = no_maptripplanner[["Email Content", 'Date Received']].apply(get_trip_date_type, axis=1)
+no_trip_urls = fb_df[pd.isnull(fb_df['Trip URL (no date)'])]
+fb_df['Trip URL (no date)'] = no_trip_urls['Email Content'].apply(get_trip_url)
+no_trip_urls = no_trip_urls[["Email Content", 'Date Received']]
+fb_df['Trip date type'] = no_trip_urls.apply(get_trip_date_type, axis=1)
 
 # Write out the version with all data
 writer = pd.ExcelWriter(out_file, engine='xlsxwriter',

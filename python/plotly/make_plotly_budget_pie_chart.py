@@ -62,7 +62,7 @@ trace1 = {
   "sort": False,
   "text": money_text,
   "textinfo": "label+percent",
-  "textposition": "outside",
+  "textposition": "auto", #"inside" | "outside" | "auto" | "none" 
   "type": "pie",
   "values": pie_df['USD']
 }
@@ -78,5 +78,5 @@ fig = go.Figure(data=data, layout=layout)
 
 
 plotly.offline.plot(fig)
-plotly.plotly.iplot(fig, filename='MOD-budget-pie')
+#plotly.plotly.iplot(fig, filename='MOD-budget-pie')
 
