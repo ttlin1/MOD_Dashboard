@@ -1,39 +1,56 @@
-# -*- coding: utf-8 -*-
-"""
-cleaning up the feedback tracking spreadsheet
-"""
-
 import pandas as pd
 import plotly
-import plotly.graph_objs as go
 import os
+import numpy as np
 from os.path import join
 
-# fb short for feedback here
 
 dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 in_file = join(dir, 'xlsx/OTP_feedback_tracking_cleaned_no_pi.xlsx')
-fb_df = pd.read_excel(in_file, "Sheet1")
+df = pd.read_excel(in_file, "Sheet1")
 
-x = fb_df.groupby(['Type of Feedback']).agg({'Type of Feedback': 'count'})
+df['Primary Issue'] = df['Type of Feedback']
+
+# If the type of feedback is a complaint, go down a level of detail
+df['Primary Issue'][df['Type of Feedback'] == 'Complaint'] = \
+    df['Primary Concern or Request']
+
+
+df = df.set_index('Date Received')
+df = df[['Primary Issue', 'Underlying Issue']]
+
+x = df.groupby('Primary Issue').aggregate(np.count_nonzero)
+categories_to_lump = x[x['Underlying Issue'] < 10].index.tolist()
+
+# Lump issues with fewer than 10 occurences into "Other Complaints"
+for index, row in df.iterrows():
+    if row['Primary Issue'] in categories_to_lump:
+        row['Primary Issue'] = 'Other complaint'
+
+
+x = df.groupby(['Primary Issue']).agg({'Primary Issue': 'count'})
+labs = x.index.tolist()
+vals = [item for sublist in x.values for item in sublist]
 
 fig = {
-    'data': [{'labels': x.index,
-              'values': x.values,
+    'data': [{'labels': labs,
+              'values': vals,
               'type': 'pie',
-              "hole": 0.4,
+              # "hole": 0.4,
               "hoverinfo": "label+percent+name",
               "textposition": "inside",
-#              'marker': {'colors': ['#66C5CC', '#F6CF71',
-#                                    '#F89C74', '#DCB0F2',
-#                                    '#87C55F', '#9EB9F3',
-#                                    '#FE88B1']
-#                         },
+              "sort": False,
+              "direction": "clockwise",
+              'marker': {'colors': ['#8dd3c7', '#ffffb3', '#bebada',
+                                    '#FFAC92', '#80b1d3', '#fdb462',
+                                    '#b3de69', '#fccde5', '#d9d9d9', '#DDA7DD']
+                         },
               }],
     'layout': {
-        'title': 'Type of Feedback',
+        # 'title': 'Type of Feedback',
         }
      }
+
 
 plotly.offline.plot(fig)
 # plotly.plotly.iplot(fig, filename='type of feedback pie')
