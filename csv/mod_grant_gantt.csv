@@ -1,1 +1,37 @@
-Task,Start,Finish,Resource,CompleteTask 1: Project Management,2017-01-01,2017-01-01,Task 1: Project Management,0Kick-off Meeting Report,2017-01-01,2017-03-31,Task 1: Project Management,50Project Management Plan,2017-01-01,2017-03-31,Task 1: Project Management,25Administrative Tasks,2017-01-01,2018-12-31,Task 1: Project Management,5Quarterly Progress Reports,2017-01-01,2018-12-31,Task 1: Project Management,0Task 2: dummy row,2017-01-01,2017-01-01,,0Task 2: Evaluations & Reports,2017-01-01,2017-01-01,Task 2: Evaluations & Reports,0Plan on MOD equity and accessibility,2017-09-30,2017-12-31,Task 2: Evaluations & Reports,0Baseline and post-treatment evaluation data,2018-06-30,2018-09-30,Task 2: Evaluations & Reports,0Knowledge Transfer,2018-09-30,2018-12-31,Task 2: Evaluations & Reports,0Field Demonstration,2018-09-30,2018-12-31,Task 2: Evaluations & Reports,0Project Report,2018-09-30,2018-12-31,Task 2: Evaluations & Reports,0Task 3: dummy row,2017-01-01,2017-01-01,,0Task 3: Application Development,2017-01-01,2017-01-01,Task 3: Application Development,0Itinerary-Based Trip Planning,2017-01-01,2017-03-31,Task 3: Application Development,0Search Options and Bikeshare,2017-03-31,2017-06-30,Task 3: Application Development,0Real-time Integration,2017-06-30,2017-09-30,Task 3: Application Development,0Shared-Use Mobility Integration,2017-09-30,2017-12-31,Task 3: Application Development,0Wheelchair/Pedestrian Routing,2017-09-30,2017-12-31,Task 3: Application Development,0Extended UI Functionality,2017-12-31,2018-03-31,Task 3: Application Development,0Integration with TriMet Website,2018-03-31,2018-06-30,Task 3: Application Development,0Task 4: dummy row,2017-01-01,2017-01-01,,0Task 4: Geocoder Development,2017-01-01,2017-01-01,Task 4: Geocoder Development,0User Research Study,2017-01-01,2017-03-31,Task 4: Geocoder Development,0Data Ingestion Pipeline,2017-09-30,2017-12-31,Task 4: Geocoder Development,0Interactive Data Management Tools,2018-03-31,2018-06-30,Task 4: Geocoder Development,0Local Installation Package,2017-06-30,2017-09-30,Task 4: Geocoder Development,0Point-based House Number Interpolation,2017-03-31,2017-06-30,Task 4: Geocoder Development,0Testing & Validation Framework,2018-06-30,2018-09-30,Task 4: Geocoder Development,0Task 5: dummy row,2017-01-01,2017-01-01,,0Task 5: Data Improvements,2017-01-01,2017-01-01,Task 5: Data Improvements,0OpenStreetMap Improvements,2018-06-30,2018-09-30,Task 5: Data Improvements,0Regional Address Improvements,2018-06-30,2018-09-30,Task 5: Data Improvements,0Task 6: dummy row,2017-01-01,2017-01-01,,0Task 6: Integrated Payment Plan,2017-01-01,2017-01-01,Task 6: Integrated Payment Plan,0Integrated Payment Plan,2018-09-30,2018-12-31,Task 6: Integrated Payment Plan,0
+Task,Start,Finish,Resource,Complete
+Task 1: Project Management,2017-01-01,2017-01-01,Task 1: Project Management,0
+Kick-off Meeting Report,2017-01-01,2017-03-31,Task 1: Project Management,50
+Project Management Plan,2017-01-01,2017-03-31,Task 1: Project Management,25
+Administrative Tasks,2017-01-01,2018-12-31,Task 1: Project Management,5
+Quarterly Progress Reports,2017-01-01,2018-12-31,Task 1: Project Management,0
+Task 2: dummy row,2017-01-01,2017-01-01,,0
+Task 2: Evaluations & Reports,2017-01-01,2017-01-01,Task 2: Evaluations & Reports,0
+Plan on MOD equity and accessibility,2017-09-30,2017-12-31,Task 2: Evaluations & Reports,0
+Baseline and post-treatment evaluation data,2018-06-30,2018-09-30,Task 2: Evaluations & Reports,0
+Knowledge Transfer,2018-09-30,2018-12-31,Task 2: Evaluations & Reports,0
+Field Demonstration,2018-09-30,2018-12-31,Task 2: Evaluations & Reports,0
+Project Report,2018-09-30,2018-12-31,Task 2: Evaluations & Reports,0
+Task 3: dummy row,2017-01-01,2017-01-01,,0
+Task 3: Application Development,2017-01-01,2017-01-01,Task 3: Application Development,0
+Itinerary-Based Trip Planning,2017-01-01,2017-03-31,Task 3: Application Development,0
+Search Options and Bikeshare,2017-03-31,2017-06-30,Task 3: Application Development,0
+Real-time Integration,2017-06-30,2017-09-30,Task 3: Application Development,0
+Shared-Use Mobility Integration,2017-09-30,2017-12-31,Task 3: Application Development,0
+Wheelchair/Pedestrian Routing,2017-09-30,2017-12-31,Task 3: Application Development,0
+Extended UI Functionality,2017-12-31,2018-03-31,Task 3: Application Development,0
+Integration with TriMet Website,2018-03-31,2018-06-30,Task 3: Application Development,0
+Task 4: dummy row,2017-01-01,2017-01-01,,0
+Task 4: Geocoder Development,2017-01-01,2017-01-01,Task 4: Geocoder Development,0
+User Research Study,2017-01-01,2017-03-31,Task 4: Geocoder Development,0
+Data Ingestion Pipeline,2017-09-30,2017-12-31,Task 4: Geocoder Development,0
+Interactive Data Management Tools,2018-03-31,2018-06-30,Task 4: Geocoder Development,0
+Local Installation Package,2017-06-30,2017-09-30,Task 4: Geocoder Development,0
+Point-based House Number Interpolation,2017-03-31,2017-06-30,Task 4: Geocoder Development,100
+Testing & Validation Framework,2018-06-30,2018-09-30,Task 4: Geocoder Development,0
+Task 5: dummy row,2017-01-01,2017-01-01,,0
+Task 5: Data Improvements,2017-01-01,2017-01-01,Task 5: Data Improvements,0
+OpenStreetMap Improvements,2018-06-30,2018-09-30,Task 5: Data Improvements,0
+Regional Address Improvements,2018-06-30,2018-09-30,Task 5: Data Improvements,0
+Task 6: dummy row,2017-01-01,2017-01-01,,0
+Task 6: Integrated Payment Plan,2017-01-01,2017-01-01,Task 6: Integrated Payment Plan,0
+Integrated Payment Plan,2018-09-30,2018-12-31,Task 6: Integrated Payment Plan,0

@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import plotly
 import datetime
-from plotly.tools import FigureFactory as FF
+from plotly import figure_factory as FF
 
 
 def to_unix_time(dt):
@@ -28,7 +28,7 @@ df = pd.read_csv(gantt_csv)
 # pip install git+https://github.com/plotly/plotly.py.git
 # This was not an issue on my mac at home, forwhatever reason.
 
-fig = FF.create_gantt(df, colors=['#7AB4ED', '#042E56'],
+fig = FF.create_gantt(df, colors=['#a1dab4', '#253494'],
                       index_col='Complete',
                       show_colorbar=True,
                       bar_width=0.2,
