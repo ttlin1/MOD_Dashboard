@@ -509,8 +509,21 @@ div.workshops:hover, #partnerstext div:hover {
 
 
 /* TIMELINE */
-.timeline {
-	width: 80vw;
-	margin: 0 auto;
+.tl-text-content-container {
+	width: 30vw;
+	max-width: 35vw;
+	min-width: 120px;
+	padding-left: 15px;
 }
 
+.tl-text p, h2 {
+	width: 100%;
+}
+
+.tl-slide-content-container {
+	padding-bottom: 1px;
+}
+
+.tl-media-content img {
+	border: 0.25px solid #eee;
+}
