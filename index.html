@@ -42,9 +42,12 @@
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
 </head>
 
 <body id="top">
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 	<nav class="mast" role="navigation">
 		<div class="mast-wrapper">
 			<div class="logo">
@@ -72,6 +75,7 @@
             <li><a href="about_pelias.html">About Pelias</a></li>
 			<li><a href="#progress" class="nav_link">Progress</a></li>
 			<li><a href="#budget" class="nav_link">Budget</a></li>
+			<li><a href="#partners" class="nav_link">Partnerships</a></li>
 			<li><a href="#management" class="nav_link">Project Management</a></li>
 			<li><a href="#evaluations" class="nav_link">Evaluation and Metrics</a></li>
 			<!-- <li><a href="#lessons" class="nav_link">Lessons Learned</a></li> -->
@@ -106,7 +110,7 @@
 	<div class="section headerbar" id="budget">
 		<h2 class="strata">Budget</h2>
 	</div>
-
+	
 	<div class="section">	
 		<div class="chart_container">
 			<div class="half_chart left">
@@ -125,10 +129,109 @@
 		<p class="top"><a href="#top" class="nav_link">Top</a></p>
 	</div>
 
+	<div class="section headerbar" id="partners">
+		<h2 class="strata">Partnerships</h2>
+	</div>
+	<div class="section">
+		<p>TriMet has several partners on the MOD Sandbox Grant project. The key partners, partner transit agencies and data providers can be found below.</p>
+		<div class="map-container">
+			<p>
+			<div id="partner-map-navigation">
+				<nav id="partner-filters" class="filter-ui"></nav>
+			</div>
+			<div id="partnerstext">
+			</div>
+			<div class="custom-popup" id="partner-map">
+				<script>
+				L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
+				var map = L.mapbox.map('partner-map')
+					.setView([39.828175,-98.5795], 4)
+					.addLayer(L.mapbox.tileLayer('mapbox.light'));
+				
+				var filters = document.getElementById('partner-filters');
+				var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
+				var partners = document.getElementById('partnerstext');
+				
+				markers.addTo(map);
+				
+				markers.on('ready', function(e) {
+					var typesObj = {},
+					types = [];
+					var features = e.target._geojson.features;
+					for (var i = 0; i < features.length; i++) {
+						typesObj[features[i].properties['status']] = true;
+					}
+					for (var key in typesObj) {
+						if ({}.hasOwnProperty.call(typesObj, key)) {
+							types.push(key);
+						}
+					}
+					
+					var checkboxes = [];
+					for (var j = 0; j < types.length; j++) {
+						var item = filters.appendChild(document.createElement('div'));
+						var checkbox = item.appendChild(document.createElement('input'));
+						var label = item.appendChild(document.createElement('label'));
+						checkbox.type = 'checkbox';
+						checkbox.id = types[j];
+						checkbox.checked = true;
+						label.innerHTML = types[j];
+						label.setAttribute('for', types[j]);
+						checkbox.addEventListener('change', update);
+						checkboxes.push(checkbox);
+					}
+
+					for (var i = 0; i < features.length; i++) {
+						var pbox = partners.appendChild(document.createElement('div'));
+						var pboxtext = pbox.appendChild(document.createElement('p'));
+						let title = features[i].properties['title'];
+						let desc = features[i].properties['description'];
+						let text_color = features[i].properties['marker-color'];
+						let partner_status = features[i].properties['status'];
+						pbox.style.cursor = 'pointer';
+						pbox.id = String(features[i].geometry['coordinates']) + text_color;
+						pbox.class = partner_status.replace(" ", "-");
+						let longitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[0]);
+						let latitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[1]);
+						let url_path = features[i].properties['url'];
+						document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
+							map.setView([latitude, longitude], 15);
+							var popup = L.popup()
+								.setLatLng([latitude + 0.001, longitude])
+								.setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '" target="_blank">' + url_path + '</a></p>')
+								.openOn(map);
+						});
+						if (url_path !== "" ) {
+							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '">' + url_path + '</a>';
+						} else {
+							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc.slice(0, desc.indexOf(",")) + "<br>" + desc.slice(desc.indexOf(",") + 1, desc.length);
+						}
+					}
+					
+					function update() {
+						var enabled = {};
+						for (var k = 0; k < checkboxes.length; k++) {
+							if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
+						}
+						
+						markers.setFilter(function(feature) {
+							return feature.properties['status'] in enabled;
+						});
+					}
+				});
+				
+				
+			</script>
+			</div>
+		</div>
+		<p class="top"><a href="#top" class="nav_link">Top</a></p>
+	</div>
+	
 	<div class="section headerbar" id="management">
 		<h2 class="strata">Project Management</h2>
 	</div>
 
+	
 	<div class="section">
 		<p>We use Trello as a team To-Do list and as a place to keep track of meetings. Follow along with us through the Trello board below.</p>
 		<div class="trello_board">

@@ -394,14 +394,14 @@ p.map_legend {
 	padding-top: 15px;
 }
 
-#map {
+#partner-map, #deployments-map {
 	width: 80vw;
 	height:25vw;
 	margin: 0 auto;
 	order: 1;
 }
 
-#map-navigation {
+#partner-map-navigation, #deployments-map-navigation {
 	width: 80vw;
 	margin: 0 auto;
 }
@@ -422,7 +422,7 @@ p.map_legend {
 	display: inline-block;
 }
 
-#filters label {
+#partner-filters label, #deployments-filters label {
 	font-family: Merriweather,Georgia,serif;
 	font-size: 12px;
 	padding: 3px 5px;
@@ -449,22 +449,27 @@ label[for="Data Provider"] {
 }
 
 label[for="Official OTP Deployment"] {
-	background-color: #333;
+	background-color: #d1441e;
 	color: #fff;
 }
 
 label[for="Unofficial OTP Deployment"] {
-	background-color: #777;
+	background-color: #084c8d;
 	color: #fff;
 }
 
-#partnerstext {
+label[for="OTP Prototype, Technical Previews, Demos"] {
+	background-color: #9CF;
+	color: #fff;
+}
+
+#partnerstext, #deploymenttext {
 	margin-top: 10px;
 	order: 2;
 }
 
 /*WORKSHOP*/
-.workshops, .presentations, #partnerstext div {
+div.workshops, div.presentations, #partnerstext div, #deploymenttext div {
 	padding: 10px;
 	margin: 5px;
 	display: inline-block;
@@ -472,17 +477,17 @@ label[for="Unofficial OTP Deployment"] {
 	vertical-align: middle;
 }
 
-div.workshops:hover, #partnerstext div:hover {
+div.workshops:hover, #partnerstext div:hover, #deploymenttext div:hover {
 	background-color: #eee;
 }
 
-#partnerstext p {
+#partnerstext p, #deploymenttext p {
 	width: 100%;
 	font-size: 12px;
 	padding: 0px;
 }
 
-#partnerstext a {
+#partnerstext a, #deploymenttext a {
 	text-decoration: none;
 	color: #000;
 }
@@ -498,7 +503,7 @@ div.workshops:hover, #partnerstext div:hover {
 	outline: 0;
 }
 
-#partnerstext a:hover {
+#deploymenttext a:hover {
 	text-decoration: underline;
 }
 

@@ -70,28 +70,28 @@
 		</div>
 	</div>
 	
-	<div class="section headerbar" id="partners">
-		<h2 class="strata">Partnerships and Deployments</h2>
+	<div class="section headerbar" id="deploy">
+		<h2 class="strata">OTP Deployments</h2>
 	</div>
 
 	<div class="section">
 		<div class="map-container">
 			<p>
-			<div id="map-navigation">
-				<nav id="filters" class="filter-ui"></nav>
+			<div id="deployments-map-navigation">
+				<nav id="deployments-filters" class="filter-ui"></nav>
 			</div>
-			<div id="partnerstext">
+			<div id="deploymenttext">
 			</div>
-			<div class="custom-popup" id="map">
+			<div class="custom-popup" id="deployments-map">
 				<script>
 				L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
-				var map = L.mapbox.map('map')
+				var map = L.mapbox.map('deployments-map')
 					.setView([23, 2], 2)
 					.addLayer(L.mapbox.tileLayer('mapbox.light'));
 				
-				var filters = document.getElementById('filters');
-				var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
-				var partners = document.getElementById('partnerstext');
+				var filters = document.getElementById('deployments-filters');
+				var markers = L.mapbox.featureLayer().loadURL('./json/deployments.geojson');
+				var deployments = document.getElementById('deploymenttext');
 				
 				markers.addTo(map);
 				
@@ -123,7 +123,7 @@
 					}
 
 					for (var i = 0; i < features.length; i++) {
-						var pbox = partners.appendChild(document.createElement('div'));
+						var pbox = deployments.appendChild(document.createElement('div'));
 						var pboxtext = pbox.appendChild(document.createElement('p'));
 						let title = features[i].properties['title'];
 						let desc = features[i].properties['description'];
