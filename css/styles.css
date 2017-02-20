@@ -318,7 +318,7 @@ p.top a:hover {
 }
 
 .drive_board {
-	height: 840px;
+	height: 620px;
 }
 
 .board-canvas {
@@ -475,6 +475,9 @@ div.workshops, div.presentations, #partnerstext div, #deploymenttext div {
 	display: inline-block;
 	border: 0.25px solid #eee;
 	vertical-align: middle;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
 div.workshops:hover, #partnerstext div:hover, #deploymenttext div:hover {
@@ -492,15 +495,13 @@ div.workshops:hover, #partnerstext div:hover, #deploymenttext div:hover {
 	color: #000;
 }
 
-.workshops a {
+.workshops p {
 	padding: 10px;
-	text-decoration: none;
 	color: #000;
-	border: none;
 	font-family: Merriweather,Georgia,serif;
 	font-size: 12px;
 	font-weight: 300;
-	outline: 0;
+	width: 100%;
 }
 
 #deploymenttext a:hover {

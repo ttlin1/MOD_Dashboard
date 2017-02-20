@@ -7,14 +7,14 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="robots" content="NOODP" />
-	
+
 	<link rel="icon" href="img/favicon.ico">
 	<link rel="shortcut icon" href="img/favicon.png">
-	
+
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic|Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 	<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
@@ -31,7 +31,7 @@
 		  $('html, body').animate({
 			scrollTop: $(hash).offset().top
 		  }, 800, function(){
-	   
+
 			// Add hash (#) to URL when done scrolling (default click behavior)
 			window.location.hash = hash;
 		  });
@@ -55,11 +55,11 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<div class="standardheader">
 		<p class="breadcrumb"><a href="http://www.trimet.org">Home</a> : <a href="index.html">MOD Sandbox</a></p>
 		<h1>MOD Sandbox Dashboard: <small>February 2016</small></h1>
-		
+
 		<div class="first">
 			<p>TriMet&rsquo;s OTP SUM project will create a complete open platform for the integration of transit and shared-use mobility options.  The open data, software and user interfaces, responsive on both web and mobile, will help customers make informed decisions about their mobility choices, including the critical first and last miles of transit trips where a bus or train alone doesn&rsquo;t provide full access.</p>
 		</div>
@@ -92,9 +92,20 @@
 		<ul class="bullets">
 			<li>Extend the Open Trip Planner code base to support the integration of transit trip planning with shared-use mobility modes, such as bike share and transportation network companies (TNCs), as well as updated real-time transit information.</li>
 			<br>
-			<li>Implement a fully functional and comprehensive open geocoder built off the existing Mapzen Pelias geocoder.</li>
+			<li>Implement a fully functional and comprehensive open geocoder built off the existing Mapzen Pelias geocoder.  Geocoding, or address locating, is a primary requirement for trip planning.  A non-proprietary and non-restrictive option for address locating would substantially lower the barrier to entry for many transit systems to offer trip planning and can achieve significant cost savings for transit agencies, government agencies, and the public.</li>
 		</ul>
-		
+		<br>
+		<p>In addition to core elements on the foundation frameworks, the project will also include:</p>
+		<br>
+		<ul class="bullets">
+			<li>Development of a comprehensive new web-based user interface that will allow users to make intermodal trip plans including shared use mobility and demand-responsive service.</li>
+			<br>
+			<li>Improvements to basemap data so the trip planner can support enhanced pedestrian/ wheelchair accessibility information for customers; and improvements to regional address data that will make location search and geocoding more effective and user-friendly.</li>
+			<br>
+			<li>Design and implementation of compatibility for future booking and payment options in moovel’s RideTap product so customers can plan and pay for their trips in one app.</li>
+		</ul>
+		<br>
+
 		<div class="chart_container">
 			<div class="full_chart" id="gantt">
 				<!-- <script src="./js/gantt.js"></script> -->
@@ -106,12 +117,12 @@
 			<p class="top"><a href="#top" class="nav_link">Top</a></p>
 		</div>
 	</div>
-	
+
 	<div class="section headerbar" id="budget">
 		<h2 class="strata">Budget</h2>
 	</div>
-	
-	<div class="section">	
+
+	<div class="section">
 		<div class="chart_container">
 			<div class="half_chart left">
 				<embed class="half_chart" src="https://plot.ly/~mosteele/33.embed?autosize=True&link=false&modebar=false&logo=false">
@@ -123,7 +134,7 @@
 				<p class="half_chart_legend">The above pie chart illustrates the amount and percentage of the budget allocated to each of the main tasks, divided into MOD grant expenses and in kind contributions.</p>
 			</div>
 			<div class="half_chart_legend_div">
-				<p class="half_chart_legend">The above bar chart shows the current amount spent for each of the tasks.</p>		
+				<p class="half_chart_legend">The above bar chart shows the current amount spent for each of the tasks.</p>
 			</div>
 		</div>
 		<p class="top"><a href="#top" class="nav_link">Top</a></p>
@@ -147,13 +158,13 @@
 				var map = L.mapbox.map('partner-map')
 					.setView([39.828175,-98.5795], 4)
 					.addLayer(L.mapbox.tileLayer('mapbox.light'));
-				
+
 				var filters = document.getElementById('partner-filters');
 				var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
 				var partners = document.getElementById('partnerstext');
-				
+
 				markers.addTo(map);
-				
+
 				markers.on('ready', function(e) {
 					var typesObj = {},
 					types = [];
@@ -166,7 +177,7 @@
 							types.push(key);
 						}
 					}
-					
+
 					var checkboxes = [];
 					for (var j = 0; j < types.length; j++) {
 						var item = filters.appendChild(document.createElement('div'));
@@ -207,49 +218,49 @@
 							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc.slice(0, desc.indexOf(",")) + "<br>" + desc.slice(desc.indexOf(",") + 1, desc.length);
 						}
 					}
-					
+
 					function update() {
 						var enabled = {};
 						for (var k = 0; k < checkboxes.length; k++) {
 							if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
 						}
-						
+
 						markers.setFilter(function(feature) {
 							return feature.properties['status'] in enabled;
 						});
 					}
 				});
-				
-				
+
+
 			</script>
 			</div>
 		</div>
 		<p class="top"><a href="#top" class="nav_link">Top</a></p>
 	</div>
-	
+
 	<div class="section headerbar" id="management">
 		<h2 class="strata">Project Management</h2>
 	</div>
 
-	
+
 	<div class="section">
 		<p>We use Trello as a team To-Do list and as a place to keep track of meetings. Follow along with us through the Trello board below.</p>
 		<div class="trello_board">
 			<embed class="trello_board" src="https://trello.com/b/rJ3RAeVr.html">
 		</div>
-        
+
 		<div class="drive_board">
 			<p>Project documents are shared through Google Drive. You will need permissions to view the files below.</p>
 			<embed class="drive_board" src="https://drive.google.com/embeddedfolderview?id=0B1jz7f2gE4K5dnlUQUFDcXVCVTQ#list" frameborder="0">
 		</div>
-		
+
         <div class="section">
         	<p>Upcoming Meetings and Agenda</p>
             <ul class="bullets large-font-size">
             	<li>Sunday, February 5, 2017 at 3:30 pm - Super Bowl | <a href="./docs/020517 Agenda.docx">Agenda</a></li>
             	<li>Monday, February 20, 2017 - President's Day | <a href="./docs/020517 Agenda.docx">Agenda</a></li>
           	</ul>
-            
+
             <ul class="anchor tight">
                 <li><a href="./calendar/Test.ics" download="Test.ics">Download the calendar (iCalendar).</a></li>
                 <li><a href="./calendar/Test.pst" download="Test.pst">Download the calendar (Outlook).</a></li>
@@ -257,7 +268,7 @@
 		</div>
 		<p class="top"><a href="#top" class="nav_link">Top</a></p>
 	</div>
-	
+
 	<div class="section headerbar" id="evaluations">
 		<h2 class="strata">Evaluations and Metrics</h2>
 	</div>
@@ -275,21 +286,21 @@
 			</div>
 			<div class="half_chart_legend_div">
 				<p class="half_chart_legend">The pie chart shows the breakdown of the public comments by category.</p>
-			</div>				
+			</div>
 		</div>
 		<p class="top"><a href="#top" class="nav_link">Top</a></p>
 	</div>
-	
+
 <!-- 	<div class="section headerbar" id="lessons">
 		<h2 class="strata">Lessons Learned</h2>
 	</div>
 
 	<div class="section">
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		
+
 		<p class="top"><a href="#top" class="nav_link">Top</a></p>
 	</div> -->
-	
+
 	<div class="section">
 		<div class="footer">
 			<div class="footer-left">
@@ -298,7 +309,7 @@
 						<i class="icon icon-slogan icon-trimet-logo-slogan"></i>
 					</a>
 				</div>
-				
+
 				<div class="footer-bottom">
 					&copy; 2017 TriMet
 					 &bull;
@@ -313,6 +324,6 @@
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 </html>

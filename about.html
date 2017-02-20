@@ -7,14 +7,14 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="robots" content="NOODP" />
-	
+
 	<link rel="icon" href="img/favicon.ico">
 	<link rel="shortcut icon" href="img/favicon.png">
-	
+
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic|Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 	<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -34,11 +34,11 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<div class="standardheader">
 		<p class="breadcrumb"><a href="http://www.trimet.org">Home</a> : <a href="index.html">MOD Sandbox</a> : <a href="about.html">About OTP</a></p>
 		<h1>About OpenTripPlanner</h1>
-		
+
 		<div class="first">
 			<p>OpenTripPlanner (OTP) is an Open Source, Multi-Modal Trip Planning System collaboratively developed by a team of developers from across the world and coordinated by OpenPlans and TriMet. The OTP Project was initially funded through the Metro 2009-2011 Regional Travel Options Grant.</p>
 		</div>
@@ -53,14 +53,14 @@
 			<li><a href="./docs/OTP Final Report - Metro 2009-2011 RTO Grant.pdf" download="OTP Final Report - Metro 2009-2011 RTO Grant.pdf">Download a copy of the OTP Final Report for the 2009-2011 grant (2.65 MB).</a></li>
 			<li><a href="http://www.opentripplanner.org/">Visit the OTP website and view the code.</a></li>
 		</ul>
-        
+
         <p class="top"><a href="index.html" class="nav_link">Return to Dashboard</a></p>
 	</div>
-	
+
 	<div class="section headerbar">
 		<h2 class="strata">TriMet Trip Planner History</h2>
 	</div>
-	
+
 	<div class="section">
 		<div id="timeline-embed" class="timeline-class" style="height:650px;width:80vw;margin:0 auto;">
 <!-- 			<iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1yLV2rE0lWxU-ByS6LNGFkBhDbhNGBk58pY4499uLibg&font=Default&lang=en&initial_zoom=5&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe> -->
@@ -69,7 +69,7 @@
 			</script>
 		</div>
 	</div>
-	
+
 	<div class="section headerbar" id="deploy">
 		<h2 class="strata">OTP Deployments</h2>
 	</div>
@@ -88,13 +88,13 @@
 				var map = L.mapbox.map('deployments-map')
 					.setView([23, 2], 2)
 					.addLayer(L.mapbox.tileLayer('mapbox.light'));
-				
+
 				var filters = document.getElementById('deployments-filters');
 				var markers = L.mapbox.featureLayer().loadURL('./json/deployments.geojson');
 				var deployments = document.getElementById('deploymenttext');
-				
+
 				markers.addTo(map);
-				
+
 				markers.on('ready', function(e) {
 					var typesObj = {},
 					types = [];
@@ -107,7 +107,7 @@
 							types.push(key);
 						}
 					}
-					
+
 					var checkboxes = [];
 					for (var j = 0; j < types.length; j++) {
 						var item = filters.appendChild(document.createElement('div'));
@@ -148,20 +148,20 @@
 							pboxtext.innerHTML = '<span style="background-color:' + text_color + ';color:#fff;padding:2px">' + title + "</span><br>" + desc.slice(0, desc.indexOf(",")) + "<br>" + desc.slice(desc.indexOf(",") + 1, desc.length);
 						}
 					}
-					
+
 					function update() {
 						var enabled = {};
 						for (var k = 0; k < checkboxes.length; k++) {
 							if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
 						}
-						
+
 						markers.setFilter(function(feature) {
 							return feature.properties['status'] in enabled;
 						});
 					}
 				});
-				
-				
+
+
 			</script>
 			</div>
 		</div>
@@ -171,19 +171,27 @@
 	<div class="section headerbar" id="partners">
 		<h2 class="strata">January 18-19, 2017 Workshop Kickoff</h2>
 	</div>
-	
+
 	<div class="section">
-		<p>On January 18th and 19th, TriMet hosted a workshop to kickoff the MOD Sandbox project that drew over forty participants. Over the two-day workshop, participants worked in breakout sessions on the following topics (click to view the notes from that session):</p>
+		<p>On January 18th and 19th, TriMet hosted a workshop to kickoff the MOD Sandbox project that drew over forty participants. Over the two-day workshop, participants worked in breakout sessions on the following topics:</p>
 		<br>
 		<div class="chart_container">
-			<div class="workshops"><a href="https://drive.google.com/open?id=1xigOJ4Cm_kaTEe5I9-r-LWsBPaRVSSyeBAX3RuGiXa4" target="_blank">Geocoding - Integration with new OTP/Trimet Website</a></div>
+			<!-- <div class="workshops"><a href="https://drive.google.com/open?id=1xigOJ4Cm_kaTEe5I9-r-LWsBPaRVSSyeBAX3RuGiXa4" target="_blank">Geocoding - Integration with new OTP/Trimet Website</a></div>
 			<div class="workshops"><a href="https://drive.google.com/open?id=1LOjFIOq7CLEBW7y9Xcqe7uR2pv1qAs0P413CtG7UGwc" target="_blank">Fares/Incentives in OTP</a></div>
 			<div class="workshops"><a href="https://drive.google.com/open?id=1lGnPjxzBQK6suTD73T3i-72os0CqqhoxYpZVE_ExR5o" target="_blank">Routing Engine - Flex+SUM+RT+Accessibility</a></div>
 			<div class="workshops"><a href="https://drive.google.com/open?id=1Dy3LLUFkqSEKQwd9jHssZCKuXNwM83Du0rs331lABhg" target="_blank">UI/UX - Flex+SUM+RT+Accessibility</a></div>
 			<div class="workshops"><a href="https://drive.google.com/open?id=1Dy3LLUFkqSEKQwd9jHssZCKuXNwM83Du0rs331lABhg" target="_blank">UI/UX - Integration with Trimet</a></div>
 			<div class="workshops"><a href="https://drive.google.com/open?id=1q-EVISCMcfymw96O3lJJzzQ8pLETX5_ZUnMvXo-KRp0" target="_blank">OTP Infrastructure and Build Management Decisions</a></div>
 			<div class="workshops"><a href="https://drive.google.com/open?id=1k-Dj32z9ykQbalDIOiEIkZoq3SHpBEdgLEIVchk4884" target="_blank">OTP Web Services/Middle Tier</a></div>
-			<div class="workshops"><a href="https://drive.google.com/open?id=1Dy3LLUFkqSEKQwd9jHssZCKuXNwM83Du0rs331lABhg" target="_blank">UI/UX - Journeys and Scenarios/ Testing Process</a></div>
+			<div class="workshops"><a href="https://drive.google.com/open?id=1Dy3LLUFkqSEKQwd9jHssZCKuXNwM83Du0rs331lABhg" target="_blank">UI/UX - Journeys and Scenarios/ Testing Process</a></div> -->
+			<div class="workshops"><p>Geocoding - Integration with new OTP/Trimet Website</p></div>
+			<div class="workshops"><p>Fares/Incentives in OTP</p></div>
+			<div class="workshops"><p>Routing Engine - Flex+SUM+RT+Accessibility</p></div>
+			<div class="workshops"><p>UI/UX - Flex+SUM+RT+Accessibility</p></div>
+			<div class="workshops"><p>UI/UX - Integration with Trimet</p></div>
+			<div class="workshops"><p>OTP Infrastructure and Build Management Decisions</p></div>
+			<div class="workshops"><p>OTP Web Services/Middle Tier</p></div>
+			<div class="workshops"><p>UI/UX - Journeys and Scenarios/ Testing Process</p></div>
 		</div>
 		<br>
 		<br>
@@ -197,13 +205,13 @@
 			<div class="presentations"><a href="https://drive.google.com/open?id=1KuzAcDWzMkz2ZNi-QLod5CxWW--AiGelNZGIJoUJVwQ" target="_blank"><img src="./img/trillium_kickoff.jpg" height="300px" width="480px"></a></div>
 			<div class="presentations"><a href="https://drive.google.com/open?id=1CcaNq307ODsLKATQRJyQAaMAHJuDniQz55DaU-vNM08" target="_blank"><img src="./img/ibi_kickoff.jpg" height="360px" width="480px"></a></div>
 		</div>
-		
+
 		<div class="chart_container">
 		</div>
-		
+
 		<p class="top"><a href="index.html" class="nav_link">Return to Dashboard</a></p>
 	</div>
-	
+
     <div class="section">
 		<div class="footer">
 			<div class="footer-left">
@@ -212,7 +220,7 @@
 						<i class="icon icon-slogan icon-trimet-logo-slogan"></i>
 					</a>
 				</div>
-				
+
 				<div class="footer-bottom">
 					&copy; 2017 TriMet
 					 &bull;
