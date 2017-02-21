@@ -208,7 +208,7 @@
 						document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
 							map.setView([latitude, longitude], 15);
 							var popup = L.popup()
-								.setLatLng([latitude + 0.001, longitude])
+								.setLatLng([latitude + 0.002, longitude])
 								.setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '" target="_blank">' + url_path + '</a></p>')
 								.openOn(map);
 						});
