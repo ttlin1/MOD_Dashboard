@@ -513,6 +513,10 @@ div.workshops:hover, #partnerstext div:hover, #deploymenttext div:hover {
 	border: 0.25 px solid #555;
 }
 
+.event-header {
+	color:#d1441e;
+	padding: 5px;
+}
 
 /* TIMELINE */
 .tl-text-content-container {
