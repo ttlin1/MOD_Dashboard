@@ -5,49 +5,6 @@ body {
 	margin: 0 auto;
 }
 
-.logo {
-	top: 0px;
-}
-
-.mast {
-	color: #eee;
-	background-color: #084c8d;
-	transition-property: background-color,box-shadow,border;
-	transition-duration: 0s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	box-shadow: transparent 0 0 1px;
-	width: 100%;
-	height: 80px;
-	position: relative;
-	display: block;
-	transform: translate3d(0,0,0);
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font: inherit;
-	vertical-align: baseline;
-	box-sizing: inherit;
-	transition: none .5s ease;
-}
-
-.mast-logo {
-	float: left;
-	z-index: 105;
-	transition-property: left;
-	margin-left: 10px;
-	padding: 19px 12px;
-}
-
-.mast-wrapper {
-	max-width: 82vw;
-	margin: 0 auto;
-	padding: 0;
-	border: 0;
-	font: inherit;
-	vertical-align: baseline;
-}
-
 .standardheader {
 	background-color: rgb(18, 18, 18);
 	background-image: url("../img/header-bg.png");
@@ -117,21 +74,6 @@ body {
 	color: #ccc;
 }
 
-.section {
-    width: 100%;
-	position: relative;
-	min-height: 1px;
-	margin-top: 40px;
-	float: left;
-}
-
-.section p {
-	width: 80vw;
-	font-size: 18px;
-	font-weight: 300;
-	font-family: Merriweather,Georgia,serif;
-	margin: 0 auto;
-}
 
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     margin: 0;
@@ -184,23 +126,6 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 	background-color: #ddd;
 }
 
-.headerbar {
-    background-color: #d1441e;
-}
-
-.headerbar h2 {
-    color: #fff;
-}
-.headerbar h2.strata {
-    letter-spacing: 1px;
-    font-size: 42px;
-	text-transform: uppercase;
-	line-height: 1;
-	padding-top: 1em;
-	padding-bottom: .75em;
-	text-align: center;
-	font-family: Hind,Helvetica,Arial,sans-serif;
-}
 
 .alert, .strata, .tripopt, .tripopt-macro {
     position: relative;
@@ -282,33 +207,6 @@ p.top a:hover {
 	background-color: #ddd;
 }
 
-.bullets {
-	width: 75vw;
-	font-size: 14px;
-	font-weight: 300;
-	list-style-type: circle;
-	font-family: Merriweather,Georgia,serif;
-	margin: 0 auto;
-}
-
-.large-font-size {
-	padding-bottom: 20px;
-}
-
-.large-font-size li {
-	font-size: 16px;
-	padding: 10px 20px 10px 15px;
-}
-
-.large-font-size a {
-	text-decoration: none;
-	color: #888;
-}
-
-.large-font-size a:hover {
-	text-decoration: underline;
-	color: #000;
-}
 
 .drive_board, .trello_board {
 	width: 80vw;
@@ -330,60 +228,6 @@ p.map_legend {
 	font-size: 10px;
 }
 
-.footer, .footer-left {
-	height: 30vw;
-	width: 100%;
-	background-color: #000;
-	max-height: 180px;
-}
-
-.footer {
-	padding-top: 60px;
-	padding-bottom: 60px;
-}
-
-.footer-left {
-	width: 50%;
-	text-align: center;
-}
-
-.icon-slogan {
-	width: 180px;
-	height: 80px;
-}
-
-.icon-trimet-logo-slogan {
-	background-image: url('../img/footer.svg');
-	background-repeat: no-repeat;
-}
-
-.icon {
-	background-size: contain;
-	background-position: center center;
-	font-size: 0;
-	color: transparent;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.footer-bottom {
-	font-family: Hind,Helvetica,Arial,sans-serif;
-	font-size: 14px;
-	font-weight: 300;
-	padding: 25px 0;
-	color: #999;
-}
-
-.footer-bottom a {
-	color: #ccc;
-	border: none;
-	text-decoration: none;
-	text-align: center;
-}
-
-.footer-bottom a:hover {
-	color: #fff;
-}
 
 /*OTP PARTNERS AND DEPLOYMENT MAP*/
 .companies {
@@ -498,11 +342,6 @@ label[for="OTP Prototype, Technical Previews, Demos"] {
 	color: #fff;
 }
 
-#partnerstext, #deploymenttext {
-	margin-top: 10px;
-	order: 2;
-}
-
 /*WORKSHOP*/
 div.workshops, div.presentations, #partnerstext div, #deploymenttext div {
 	padding: 10px;
@@ -515,19 +354,8 @@ div.workshops, div.presentations, #partnerstext div, #deploymenttext div {
 	border-radius: 5px;
 }
 
-div.workshops:hover, #partnerstext div:hover, #deploymenttext div:hover {
+div.workshops:hover {
 	background-color: #eee;
-}
-
-#partnerstext p, #deploymenttext p {
-	width: 100%;
-	font-size: 12px;
-	padding: 0px;
-}
-
-#partnerstext a, #deploymenttext a {
-	text-decoration: none;
-	color: #000;
 }
 
 .workshops p {
@@ -539,19 +367,61 @@ div.workshops:hover, #partnerstext div:hover, #deploymenttext div:hover {
 	width: 100%;
 }
 
-#deploymenttext a:hover {
-	text-decoration: underline;
-}
 
-.presentations img:hover {
-	opacity: 0.5;
-	border: 0.25 px solid #555;
+#partnerstext, #deploymenttext {
+	margin-top: 10px;
+	order: 2;
 }
+    #partnerstext div, #deploymenttext div {
+        padding: 10px;
+        margin: 5px;
+        display: inline-block;
+        border: 0.25px solid #eee;
+        vertical-align: middle;
+    }
+        #partnerstext div:hover #deploymenttext div:hover {
+            background-color: #eee;
+        }
+        #partnerstext p, ##deploymenttext p {
+            width: 100%;
+            font-size: 75%;
+            padding: 0;
+            font-family: Hind, Helvetica, Arial, sans-serif;
+        }
+            #partnerstext p span, #deploymenttext p span {
+                display: inline-block;
+                padding: 2px 7px !important;
+                font-weight: 500;
+            }
+            #partnerstext a, #deploymenttext a {
+                display: inline-block;
+                text-decoration: none;
+                color: #000;
+                border: none;
+                width: 175px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+                #partnerstext a:hover, #deploymenttext a:hover {
+                    text-decoration: underline;
+                }
 
-.event-header {
-	color:#d1441e;
-	padding: 5px;
+
+.presentations img {
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, .2);
+    transition-property: box-shadow;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-out;
+    margin: 1em;
 }
+    .presentations img:hover {
+        box-shadow: 0px 0px 0px 5px rgba(109, 179, 63, 1);
+        transition-property: box-shadow;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
+    }
+
 
 /* TIMELINE */
 .tl-text-content-container {
