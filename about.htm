@@ -4,22 +4,26 @@
 <!--[if IE 9 ]>    <html dir="ltr" lang="en-US" class="no-js ie9 oldie"> <![endif]-->
 <!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html id="html" dir="ltr" lang="en-US" class="no-js"><!-- InstanceBegin template="/Templates/content-promo.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
+<!-- InstanceBeginEditable name="doctitle" -->
 	<title>MOD Sandbox - About OpenTripPlanner</title>
 	<!-- InstanceEndEditable -->
-	<!--#include virtual="/asset/includes/head.htm" -->
-	<!--#include virtual="/global/includes/head.htm" -->   
-	<!-- InstanceBeginEditable name="head" -->
+<!--#include virtual="/asset/includes/head.htm" -->
+<!--#include virtual="/global/includes/head.htm" -->
+<!-- InstanceBeginEditable name="head" -->
 
 	<link rel="stylesheet" href="css/styles.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<link href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" rel="stylesheet" />
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-	<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+	<script src="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js"></script>
+	<link href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" />
+	<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js"></script>
+
 	<link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+	<script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+	<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js"></script>
+
 	<!-- InstanceEndEditable -->
 </head>
 
@@ -28,9 +32,7 @@
 <!--#include virtual="/asset/includes/nav.htm" -->
 <section id="content" class="content">
 <!-- InstanceBeginEditable name="Main" -->
-	<script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-	
+
 	<div class="standardheader wide">
 		<p class="breadcrumb"><a href="/index.htm">Home</a> : <a href="/mod/index.htm">MOD Sandbox</a> : About OTP</p>
 		<h1>About OpenTripPlanner</h1>
@@ -45,14 +47,14 @@
         <div class="contentcontainer">
             <div class="row">
                 <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-                   
-                   
+
+
                     <ul class="anchor">
                         <li><a href="#overview">Overview</a></li>
                         <li><a href="#history">TriMet Trip Planner History</a></li>
-                        <li><a href="#deployments">OTP Deployments</a></li>
-                    </ul>  
-	
+                        <li><a href="#deploy">OTP Deployments</a></li>
+                    </ul>
+
 					<p id="overview">TriMet&rsquo;s older text-based trip planner was a proprietary transit trip planner, providing transit trip itineraries with limited walking instructions; however, customers frequently requested the ability to plan multi-modal trips, such as the ability to bike to transit. Similarly, Google Maps is capable of planning several different single-mode trips (transit or driving or walking or biking), however, it cannot plan a trip consisting of multiple modes. The ability to plan multi-modal trips, a combination of transit, walking, and biking, and to bring as much information as possible into one central location allowed commuters to make informed decisions about their transportation choices while encouraging sustainable modes and decreasing the number of drive-alone vehicle trips. Commercial off-the-shelf solutions were cost prohibitive for TriMet and many US transit agencies, and open source, multi-modal trip planners were relatively new to the market and lacked a strong user and developer base and a sustainable support model.</p>
 
 					<p>TriMet was interested in bringing interested parties together to collaborate on an open source multi-modal trip planning system that would not only meet TriMet&rsquo;s increasing needs, but could potentially be a viable alternative for other agencies. TriMet partnered with OpenPlans, a non-profit organization that specializes in open source software and civic projects, and several other developers, on applying for a Metro Regional Travel Options (RTO) Grant in 2008 to begin work on an open source, multi-modal trip planner, which came to be known as the OpenTripPlanner. OpenPlans was responsible from the outset to lead the technical development of the project, to facilitate a strong development community around the code, and to provide a sustainable business model around the software to ensure there are maintenance and support options for agencies.</p>
@@ -73,18 +75,18 @@
             <p class="top"><a href="#top">Top</a></p>
         </div>
     </div><!-- .fullwidth -->
-	
-	
+
+
 <!------- TRIP PLANNER HISTORY BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="history">TriMet Trip Planner History</h2>
 		<div class="contentcontainer">
 			<div class="row">
 				<div class="col-xs-12">
-					<div id="timeline-embed" class="timeline-class" style="height:650px;width:80vw;margin:0 auto;">
+					<div id="timeline-embed" class="timeline-class">
 			<!-- 			<iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1yLV2rE0lWxU-ByS6LNGFkBhDbhNGBk58pY4499uLibg&font=Default&lang=en&initial_zoom=5&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe> -->
 						<script type="text/javascript">
-							timeline = new TL.Timeline('timeline-embed', 'https://docs.google.com/spreadsheets/d/1yLV2rE0lWxU-ByS6LNGFkBhDbhNGBk58pY4499uLibg/edit#gid=0');
+							timeline = new TL.Timeline('timeline-embed', 'https://docs.google.com/spreadsheets/d/1yLV2rE0lWxU-ByS6LNGFkBhDbhNGBk58pY4499uLibg/edit?usp=sharing');
 						</script>
 					</div>
 				</div><!-- .col -->
@@ -99,8 +101,8 @@
             <p class="top"><a href="#top">Top</a></p>
         </div>
     </div><!-- .fullwidth -->
-	
-	
+
+
 <!------- DEPLOYMENTS BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="deploy">OTP Deployments</h2>
@@ -205,7 +207,7 @@
         </div>
     </div><!-- .fullwidth -->
 
-	
+
 <!-- InstanceEndEditable -->
 </section><!-- #.content -->
 <!--#include virtual="/asset/includes/footer.htm" -->
