@@ -31,6 +31,7 @@ df['MOD_remaining_pct'] = df['MOD_remaining'] / df['MOD_budgeted']
 df['In_kind_spent_pct'] = df['In_kind_spent'] / df['In_kind_budgeted']
 df['In_kind_remaining_pct'] = df['In_kind_remaining'] / df['In_kind_budgeted']
 
+df = df.round(2)
 
 # Reverse sorting makes the categories draw in correct order
 df.sort_index(ascending=False, inplace=True)

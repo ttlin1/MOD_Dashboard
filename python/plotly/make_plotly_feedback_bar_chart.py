@@ -35,7 +35,7 @@ for index, row in df.iterrows():
         row['Primary Issue'] = 'Other complaint'
 
 g = df.groupby('Primary Issue')\
-        .apply(lambda df: df['Primary Issue'].resample('1M').count())
+        .apply(lambda df: df['Primary Issue'].resample('1W').count())
 
 g = g.unstack('Primary Issue').fillna(0)
 
@@ -75,4 +75,4 @@ fig = go.Figure(data=data, layout=layout)
 
 
 plotly.offline.plot(fig)
-plotly.plotly.iplot(fig, filename='feedback histogram')
+#plotly.plotly.iplot(fig, filename='feedback histogram')

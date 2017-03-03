@@ -96,6 +96,6 @@ for i in range(0, len(df)):
 fig['layout']['annotations'] = bold_task_labels
 
 plotly.offline.plot(fig)
-plotly.plotly.iplot(fig,
-                    filename='MOD_Grant_gantt_chart',
-                    world_readable=True)
+#plotly.plotly.iplot(fig,
+#                    filename='MOD_Grant_gantt_chart',
+#                    world_readable=True)

@@ -1,9 +1,9 @@
 Tasks and Other Activities,MOD Grant Expenses (Budgeted),MOD Grant Expenses (Actual),In Kind Contributions (Budgeted),In Kind Contributions (Actual)
-Task 1: Project Management,80000,20000,20000,5000
-Task 2: Evaluations and Reports,40000,10000,50000,12500
-Task 3: Application Development,270000,67500,70000,17500
-Task 4: Geocoder Development,200000,50000,64000,16000
-Task 5: Data Improvements,70000,17500,20000,5000
-Task 6: Integrated Payment Plan,0,0,100000,25000
-Travel and Incidentals,18000,4500,0,0
-Total Cost,678000,169500,324000,81000
+Task 1: Project Management,80000,0,20000,0
+Task 2: Evaluations and Reports,40000,0,50000,0
+Task 3: Application Development,270000,0,70000,0
+Task 4: Geocoder Development,200000,0,64000,48000
+Task 5: Data Improvements,70000,0,20000,0
+Task 6: Integrated Payment Plan,0,0,100000,0
+Travel and Incidentals,18000,5277.8,0,0
+Total Cost,678000,5277.8,324000,48000
