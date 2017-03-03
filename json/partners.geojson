@@ -1,21 +1,70 @@
 {
    "type": "FeatureCollection",
    "features": [
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-77.021104,38.914714]
-    },
-    "properties": {
-    "title":"Conveyal",
-    "description":"641 S St NW - 3rd Floor, Washington, D.C. 20001",
-    "marker-color":"#d1441e",
-	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner",
-	"url":""
-    }
-  },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [-122.677220,45.510126]
+     },
+     "properties": {
+     "title":"TriMet",
+     "description":"1800 SW 1st Ave #300, Portland, OR 97201",
+     "marker-color":"#d1441e",
+ 	"marker-size":"large",
+     "status":"Mod Sandbox Key Partner",
+ 	"url":"http://www.trimet.org",
+     "logo":"img/partners/trimet.jpg"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [-77.002973,38.875864]
+     },
+     "properties": {
+     "title":"Federal Transit Authority",
+     "description":"1200 New Jersey Avenue SE, Washington, DC 20590",
+     "marker-color":"#d1441e",
+     "marker-size":"large",
+     "status":"Mod Sandbox Key Partner",
+     "url":"https://www.transit.dot.gov/",
+     "logo":"img/partners/fta.png"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [-77.021104,38.914714]
+     },
+     "properties": {
+     "title":"Conveyal",
+     "description":"641 S St NW - 3rd Floor, Washington, D.C. 20001",
+     "marker-color":"#d1441e",
+     "marker-size":"large",
+     "status":"Mod Sandbox Key Partner",
+     "url":"http://conveyal.com/",
+     "logo":"img/partners/conveyal.png"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [-79.396652,43.687218]
+     },
+     "properties": {
+     "title":"IBI Group",
+     "description":"55 St. Clair Avenue West 7th Floor, Toronto ON M4V 2Y7",
+     "marker-color":"#d1441e",
+     "marker-size":"large",
+     "status":"Mod Sandbox Key Partner",
+     "url":"http://www.ibigroup.com/",
+     "logo":"img/partners/ibi.jpg"
+     }
+   },
   {
     "type": "Feature",
     "geometry": {
@@ -28,7 +77,8 @@
     "marker-color":"#d1441e",
 	"marker-size":"large",
     "status":"Mod Sandbox Key Partner",
-	"url":""
+	"url":"https://mapzen.com/",
+    "logo":"img/partners/mapzen.jpg"
     }
   },
   {
@@ -43,7 +93,8 @@
     "marker-color":"#d1441e",
 	"marker-size":"large",
     "status":"Mod Sandbox Key Partner",
-	"url":""
+	"url":"http://www.oregonmetro.gov/",
+    "logo":"img/partners/metro.jpg"
     }
   },
   {
@@ -58,93 +109,8 @@
     "marker-color":"#d1441e",
 	"marker-size":"large",
     "status":"Mod Sandbox Key Partner",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-79.396652,43.687218]
-    },
-    "properties": {
-    "title":"IBI Group",
-    "description":"55 St. Clair Avenue West 7th Floor, Toronto ON M4V 2Y7",
-    "marker-color":"#d1441e",
-	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-122.677220,45.510126]
-    },
-    "properties": {
-    "title":"TriMet",
-    "description":"1800 SW 1st Ave #300, Portland, OR 97201",
-    "marker-color":"#d1441e",
-	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-104.998358,39.750880]
-    },
-    "properties": {
-    "title":"Regional Transportation District",
-    "description":"1600 Blake Street, Denver, CO 80202",
-    "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-121.939699, 37.400273]
-    },
-    "properties": {
-    "title":"Santa Clara Valley Transportation Authority",
-    "description":"3331 North First Street, San Jose, CA 95134",
-    "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-122.679211, 45.519672]
-    },
-    "properties": {
-    "title":"Trillium Transit (VTrans)",
-    "description":"610 SW Broadway Suite 308, Portland, OR 97205",
-    "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-122.678675,45.515656]
-    },
-    "properties": {
-    "title":"Portland Bureau of Transportation",
-    "description":"1120 SW Fifth Ave Suite 800, Portland, OR 97204",
-    "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
+	"url":"https://moovel-group.com/",
+    "logo":"img/partners/moovel.jpg"
     }
   },
   {
@@ -157,36 +123,9 @@
     "title":"AC Transit",
     "description":"1600 Franklin Street, Oakland, CA 94612",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-118.232687,34.056265]
-    },
-    "properties": {
-    "title":"LA Metro",
-    "description":"One Gateway Plaza, Los Angeles, CA 90012",
-    "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-82.416163,28.058344]
-    },
-    "properties": {
-    "title":"Center for Urban Transportation Research - University of South Florida",
-    "description":"3808 USF Alumni Drive, Tampa, Fl, 33620-5375",
-    "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
+    "status":"Partner",
+  "url":"http://www.actransit.org/",
+    "logo":"img/partners/ac-transit.jpg"
     }
   },
   {
@@ -199,36 +138,144 @@
     "title":"BART",
     "description":"300 Lakeside Drive - 18th Floor, Oakland, CA 94612",
     "marker-color":"#084c8d",
-    "status":"Partner Transit Agency",
-	"url":""
-    }
-  },
-    {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [-122.417561,37.775218]
-    },
-    "properties": {
-    "title":"Uber",
-    "description":"1455 Market St #400, San Francisco, CA 94103",
-    "marker-color":"#9cf",
-    "status":"Data Provider",
-	"url":""
+    "status":"Partner",
+  "url":"https://www.bart.gov/",
+    "logo":"img/partners/bart.png"
     }
   },
   {
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [-122.391984,37.776558]
+       "coordinates":  [-121.939699, 37.400273]
     },
     "properties": {
-    "title":"Lyft",
-    "description":"185 Berry St, San Francisco, CA 94107",
-    "marker-color":"#9cf",
-    "status":"Data Provider",
-	"url":""
+    "title":"Cambridge Systematics",
+    "description":"100 CambridgePark Drive Suite 400, Cambridge, MA  02140",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+    "url":"https://www.camsys.com/",
+    "logo":"img/partners/cambridge-systematics.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-82.416163,28.058344]
+    },
+    "properties": {
+    "title":"Center for Urban Transportation Research - University of South Florida",
+    "description":"3808 USF Alumni Drive, Tampa, Fl, 33620-5375",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+  "url":"https://www.cutr.usf.edu/",
+    "logo":"img/partners/usf.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-118.232687,34.056265]
+    },
+    "properties": {
+    "title":"LA Metro",
+    "description":"One Gateway Plaza, Los Angeles, CA 90012",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+  "url":"https://www.metro.net/",
+    "logo":"img/partners/la-metro.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-122.678675,45.515656]
+    },
+    "properties": {
+    "title":"Portland Bureau of Transportation",
+    "description":"1120 SW Fifth Ave Suite 800, Portland, OR 97204",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+  "url":"https://www.portlandoregon.gov/transportation/",
+    "logo":"img/partners/city-of-portland.jpg"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-122.678675,45.515656]
+    },
+    "properties": {
+    "title":"Portland Streetcar",
+    "description":"1120 SW Fifth Ave Suite 800, Portland, OR 97204",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+    "url":"https://portlandstreetcar.org/",
+    "logo":"img/partners/streetcar.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-104.998358,39.750880]
+    },
+    "properties": {
+    "title":"Regional Transportation District",
+    "description":"1600 Blake Street, Denver, CO 80202",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+  "url":"http://www.rtd-denver.com/",
+    "logo":"img/partners/rtd.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-121.939699, 37.400273]
+    },
+    "properties": {
+    "title":"Santa Clara Valley Transportation Authority",
+    "description":"3331 North First Street, San Jose, CA 95134",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+  "url":"http://www.vta.org/",
+    "logo":"img/partners/vta.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-122.679211, 45.519672]
+    },
+    "properties": {
+    "title":"Trillium Transit",
+    "description":"610 SW Broadway Suite 308, Portland, OR 97205",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+	"url":"http://trilliumtransit.com/",
+    "logo":"img/partners/trillium.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-72.584210,44.256301]
+    },
+    "properties": {
+    "title":"Vermont Agency of Transportation",
+    "description":"One National Life Drive, Montpelier, VT 05633-5001",
+    "marker-color":"#084c8d",
+    "status":"Partner",
+    "url":"http://vtrans.vermont.gov/",
+    "logo":"img/partners/vermont.png"
     }
   },
   {
@@ -242,7 +289,38 @@
     "description":"5202 Third Avenue, Brooklyn, NY 11220",
     "marker-color":"#9cf",
     "status":"Data Provider",
-	"url":""
+  "url":"https://www.biketownpdx.com/",
+    "logo":"img/partners/biketown.png"
+    }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [-122.391984,37.776558]
+     },
+     "properties": {
+     "title":"Lyft",
+     "description":"185 Berry St, San Francisco, CA 94107",
+     "marker-color":"#9cf",
+     "status":"Data Provider",
+ 	"url":"https://www.lyft.com/",
+     "logo":"img/partners/lyft.png"
+     }
+   },
+    {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [-122.417561,37.775218]
+    },
+    "properties": {
+    "title":"Uber",
+    "description":"1455 Market St #400, San Francisco, CA 94103",
+    "marker-color":"#9cf",
+    "status":"Data Provider",
+	"url":"https://www.uber.com/",
+    "logo":"img/partners/uber.jpg"
     }
   }
 ]
