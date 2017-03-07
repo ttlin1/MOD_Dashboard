@@ -22,6 +22,9 @@ df['Primary Issue'] = df['Type of Feedback']
 df['Primary Issue'][df['Type of Feedback'] == 'Complaint'] = \
     df['Primary Concern or Request']
 
+# If they are "Unhappy with Trip Plan", go down another level
+df['Primary Issue'][(df['Primary Issue'] == 'Unhappy with trip plan') \
+   & pd.notnull(df['Underlying Issue'])] = df['Underlying Issue']
 
 df = df.set_index('Date Received')
 df = df[['Primary Issue', 'Underlying Issue']]
@@ -40,8 +43,8 @@ g = df.groupby('Primary Issue')\
 g = g.unstack('Primary Issue').fillna(0)
 
 # From color brewer (with red toned down).
-colors = ['#DDA7DD', '#d9d9d9', '#fccde5', '#b3de69', '#fdb462',
-          '#80b1d3', '#FFAC92', '#bebada', '#ffffb3', '#8dd3c7']
+colors = ['#A0E89C', '#DDA7DD', '#d9d9d9', '#fccde5', '#DBF498',
+          '#fdb462', '#80b1d3', '#FFAC92', '#bebada', '#ffffb3', '#8dd3c7']
 
 # Alternative pallete - Rainbow (reversed)
 # ['#F5A872', '#FCC777', '#FBF583', '#ADD68A', '#64C195', '#56C4C5',
@@ -59,6 +62,7 @@ for column in columns:
             x=g.index,
             name=column,
             text=column,
+            textfont={"size": 20},
             marker={"color": colors[counter]},
             hoverinfo="y+name"
         )
@@ -68,11 +72,13 @@ for column in columns:
 
 layout = go.Layout(
     barmode='stack',
-    xaxis={'fixedrange': True}
+    hovermode='closest',
+    xaxis=dict(fixedrange=True),
+    font=dict(size=16)
 )
 
 fig = go.Figure(data=data, layout=layout)
 
 
 plotly.offline.plot(fig)
-#plotly.plotly.iplot(fig, filename='feedback histogram')
+plotly.plotly.iplot(fig, filename='feedback histogram')

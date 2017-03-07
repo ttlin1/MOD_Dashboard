@@ -3,7 +3,6 @@ import pandas as pd
 import plotly
 import plotly.graph_objs as go
 import numpy as np
-import textwrap
 
 dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 budget_csv = os.path.join(dir, 'csv/MOD_Budget_dummy_actuals.csv')
@@ -40,7 +39,7 @@ pie_df['pct'] = pie_df['pct'].apply(lambda x: '{0:.1f}%'.format(x*100))
 
 # Create task list with html line breaks
 tasks = pie_df['Task'].apply(lambda x: x.split(": ")[-1])
-tasks = tasks.apply(lambda x: "<br>".join(textwrap.wrap(x, width=20)))
+#tasks = tasks.apply(lambda x: "<br>".join(textwrap.wrap(x, width=20)))
 
 
 # 5F6FC2 = old version of color 3
@@ -58,10 +57,10 @@ trace1 = {
                "#82DDDD", "#ADD68A", "#CEEAB7", "#FCC777", "#FFD89E",
                "#FFB19F", "#999999"],
   },
-  "showlegend": False,
+  "showlegend": True,
   "sort": False,
   "text": money_text,
-  "textinfo": "label+percent",
+  "textinfo": 'none',
   "textposition": "auto", #"inside" | "outside" | "auto" | "none" 
   "type": "pie",
   "values": pie_df['USD']
@@ -72,6 +71,7 @@ layout = {"margin": {
                     "l": 145,
                     "t": 160
                     },
+          "font": {"size": 16},
           "title": "MOD Grant Budget"
           }
 fig = go.Figure(data=data, layout=layout)
@@ -79,4 +79,3 @@ fig = go.Figure(data=data, layout=layout)
 
 plotly.offline.plot(fig)
 #plotly.plotly.iplot(fig, filename='MOD-budget-pie')
-

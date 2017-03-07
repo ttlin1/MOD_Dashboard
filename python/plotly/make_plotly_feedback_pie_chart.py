@@ -16,6 +16,10 @@ df['Primary Issue'][df['Type of Feedback'] == 'Complaint'] = \
     df['Primary Concern or Request']
 
 
+# If they are "Unhappy with Trip Plan", go down another level
+df['Primary Issue'][(df['Primary Issue'] == 'Unhappy with trip plan') \
+   & pd.notnull(df['Underlying Issue'])] = df['Underlying Issue']
+
 df = df.set_index('Date Received')
 df = df[['Primary Issue', 'Underlying Issue']]
 
@@ -37,20 +41,21 @@ fig = {
               'values': vals,
               'type': 'pie',
               # "hole": 0.4,
-              "hoverinfo": "label+percent+name",
+              "hoverinfo": "label+value",
               "textposition": "inside",
               "sort": False,
               "direction": "clockwise",
               'marker': {'colors': ['#8dd3c7', '#ffffb3', '#bebada',
                                     '#FFAC92', '#80b1d3', '#fdb462',
-                                    '#b3de69', '#fccde5', '#d9d9d9', '#DDA7DD']
+                                    '#DBF498', '#fccde5', '#d9d9d9',
+                                    '#DDA7DD', '#A0E89C']
                          },
               }],
-    'layout': {
-        # 'title': 'Type of Feedback',
+    'layout': {"hovermode": "closest", 
+               "font": dict(size=16),
         }
      }
 
 
 plotly.offline.plot(fig)
-# plotly.plotly.iplot(fig, filename='type of feedback pie')
+plotly.plotly.iplot(fig, filename='type of feedback pie')
