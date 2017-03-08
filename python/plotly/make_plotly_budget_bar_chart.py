@@ -95,8 +95,10 @@ trace4 = go.Bar(
 data = [trace1, trace2, trace3, trace4]
 layout = go.Layout(
     barmode='stack',
+    hovermode='closest',
     showlegend=True,
     title='MOD Grant Spent and Remaining Funds',
+    font=dict(size=14),
     legend=dict(
         x=0.7,
         y=1,
@@ -104,7 +106,7 @@ layout = go.Layout(
     ),
     yaxis=dict(fixedrange=True),
     xaxis=dict(tickprefix='$', tickformat='0,000', fixedrange=True),
-    margin=dict(b=80, l=90, r=80, pad=5, t=160)
+    margin=dict(b=80, l=120, r=80, pad=5, t=160)
 )
 
 fig = go.Figure(data=data, layout=layout)

@@ -43,12 +43,12 @@ margin_dict = {
       "r": 80,
       "b": 80,
       "pad": 5,
-      "l": 280,
+      "l": 340,
       "t": 5
     }
 
 fig['layout']['margin'] = margin_dict
-# fig['layout']['font'] = dict(family='Merriweather')
+fig['layout']['font'] = dict(size=14)
 del fig['layout']['title']
 fig['data'][-1].items()[0][1]["colorbar"] = {"title": "Percent Complete"}
 fig['layout']['hovermode'] = 'closest'  # "x" | "y" | "closest" | False
@@ -87,7 +87,7 @@ for i in range(0, len(df)):
                         showarrow=False,
                         ax=0,
                         ay=-40,
-                        font={'size': 12}
+                        font={'size': 14}
                         )
                     )
     else:
