@@ -72,6 +72,7 @@
 					<li><a href="#meetings" class="nav_link">Meetings</a></li>
                     <li><a href="#events" class="nav_link">Events</a></li>
 					<li><a href="#evaluations" class="nav_link">Evaluation and Metrics</a></li>
+                    <li><a href="#contact" class="nav_link">Contact</a></li>
 				</ul>
 			 </div><!-- .col -->
 		</div><!-- .row -->
@@ -110,12 +111,18 @@
         </div><!-- .contentcontainer -->
 
         <div class="mod-container">
-                    <div class="full_chart" id="gantt">
-                        <!-- <script src="./js/gantt.js"></script> -->
-                        <embed class="full_chart" src="https://plot.ly/~mosteele/25.embed?autosize=True&link=false&modebar=false&logo=false">
-                    </div>
-					<p class="small hcenter">The MOD Sandbox project is divided into six main tasks&colon; Project Management&comma; Evaluations &amp; Reports&comma; Application Development&comma; Geocoder Development&comma; Data Improvements and an Integrated Payment Plan.</p>
-		</div><!-- .mod-container -->
+            <div class="full_chart" id="gantt">
+                <!-- <script src="./js/gantt.js"></script> -->
+                <embed class="full_chart" src="https://plot.ly/~mosteele/25.embed?autosize=True&link=false&modebar=false&logo=false">
+            </div>
+            <!-- <p class="small hcenter">The MOD Sandbox project is divided into six main tasks&colon; Project Management&comma; Evaluations &amp; Reports&comma; Application Development&comma; Geocoder Development&comma; Data Improvements and an Integrated Payment Plan.</p> -->
+            <hr>
+            <h3 class="hcenter">MOD Program Quarterly Report</h3>
+            <p class="hcenter">The <a href="https://docs.google.com/document/d/18Ks_VuCD-hxVpaPQH25AbZ4cVOsPbHM7xK8SejqJqtw/edit?usp=sharing" target="_blank">MOD Program Quarterly Report</a> will available through this dashboard. The Report below is currently a draft:</p>
+            <div class="drive_board">
+                <embed class="drive_board" style="padding:5px;border:1px solid #ccc;" src="https://docs.google.com/document/d/18Ks_VuCD-hxVpaPQH25AbZ4cVOsPbHM7xK8SejqJqtw/pub?embedded=true">
+            </div>
+        </div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PROGRESS END ------->
 
@@ -240,7 +247,6 @@
             </div><!-- .row -->
         </div><!-- .contentcontainer -->
 
-
         <div class="mod-container">
                 <div class="trello_board">
                     <embed class="trello_board" src="https://trello.com/b/rJ3RAeVr.html">
@@ -309,10 +315,10 @@
         <h2 class="section-title" id="events">Events</h2>
         <div class="contentcontainer">
             <h3>Project Kickoff Workshop January 18 &dash; 19&comma; 2017</h3>
-            <p>On January 18th and 19th&comma; TriMet hosted a workshop to kickoff the MOD Sandbox project that drew over forty participants. The workshop report can be found below:</p>
+            <p>On January 18th and 19th&comma; TriMet hosted a workshop to kickoff the MOD Sandbox project that drew over forty participants. The <a href="https://docs.google.com/document/d/1vhTZcvBCp_2wQF9z1iNrT2nU3r31ZNi_5veKZ6my7lQ/edit?usp=sharing" target="_blank">workshop report</a> can be found below:</p>
             <p>&nbsp;</p>
-            <div class="drive_board" style="border:1px solid #eee;">
-                <embed class="drive_board" src="https://docs.google.com/document/d/1vhTZcvBCp_2wQF9z1iNrT2nU3r31ZNi_5veKZ6my7lQ/pub?embedded=true">
+            <div class="drive_board">
+                <embed class="drive_board" style="border:1px solid #eee;" src="https://docs.google.com/document/d/1vhTZcvBCp_2wQF9z1iNrT2nU3r31ZNi_5veKZ6my7lQ/pub?embedded=true">
             </div>
             <p>&nbsp;</p>
         </div><!-- .contentcontainer -->
@@ -359,24 +365,36 @@
             <p class="hcenter">The draft evaluation report can be found below:</p>
             <!-- <embed class="drive_board" src="https://docs.google.com/presentation/d/17Ok54d4-IqYNdY0dw96Soy1Lc05u_jjpi0G-yOvhukQ/embed?start=false&loop=true&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"> -->
             <iframe class="slideshow" src="https://docs.google.com/presentation/d/17Ok54d4-IqYNdY0dw96Soy1Lc05u_jjpi0G-yOvhukQ/embed?start=false&loop=true&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        </div>
+        </div><!-- .contentcontainer -->
+        <hr>
         <div class="mod-container">
             <h3 class="hcenter">Equity and Accessibility</h3>
             <p>TriMet worked with the OpenStreetMap community to tag the sidewalks throughout the Portland metropolitan area. These improvements will greatly assist in providing better trip planning with accessibility in mind.<p>
             <p class="hcenter">The animation below illustrates the vast improvements in our knowledge of sidewalk locations:</p>
-            <div class="sidewalk">
-                <embed class="sidewalk" src="./gif/sidewalk-compressed.gif">
-            </div>
-            <p>&nbsp;</p>
+        </div>
+        <div style="margin:0 auto;width:80vw;">
+            <div style="display:inline-block;vertical-align:top;"><embed class="sidewalk" src="./gif/sidewalk-compressed.gif"></div>
+            <div style="display:inline-block;vertical-align:top;"><img src="./gif/sidewalk-legend.png"></div>
+        </div>
     </div><!-- .fullwidth -->
 <!------- EVALUATIONS AND METRICS END ------->
 
 
-    <div class="fullwidth">
-        <div class="contentcontainer">
-            <p class="top"><a href="#top">Top</a></p>
-        </div>
-    </div><!-- .fullwidth -->
+<div class="fullwidth">
+    <div class="contentcontainer">
+        <p class="top"><a href="#top">Top</a></p>
+    </div>
+</div><!-- .fullwidth -->
+
+
+<!------- CONTACT -------->
+<div class="fullwidth">
+    <h2 class="section-title" id="evaluations">Contact</h2>
+    <div class="contentcontainer">
+        <p class="hcenter">For more information, contact Madeline Steele at <a href="mailto:steelem@trimet.org">steelem@trimet.org</a>.</p>
+        <p class="top"><a href="#top">Top</a></p>
+    </div>
+</div><!-- .fullwidth -->
 <!-- InstanceEndEditable -->
 </section><!-- #.content -->
 <!--#include virtual="/asset/includes/footer.htm" -->
