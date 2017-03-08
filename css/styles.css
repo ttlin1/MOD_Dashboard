@@ -10,8 +10,6 @@ h2.section-title {
     font-size: 2.5em;
 }
 
-
-
 .chart {
 	background-color: #ccc;
 }
@@ -21,7 +19,6 @@ h2.section-title {
 }
 
 
-
 .half_chart, .full_chart {
 	width: 100%;
 	display: inline-block;
@@ -29,12 +26,12 @@ h2.section-title {
     margin: 0 auto;
 }
 .trello_board, .drive_board {
-	width: 95%;
+	width: 80%;
 	height: 735px;
     margin: 0 auto;
 }
     .drive_board {
-        height: 500px;
+        height: 675px;
     }
 
 @media only screen and (min-width: 992px) { /* md screens and up */
@@ -51,11 +48,9 @@ h2.section-title {
     }
     .drive_board {
         width: 750px;
-        height: 840px;
+        height: 675px;
     }
 }
-
-
 
 
 .alert, .strata, .tripopt, .tripopt-macro {
@@ -67,8 +62,14 @@ h2.section-title {
 }
 
 .map-container {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    width: 81vw;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+.mod-container {
 	width: 81vw;
 	margin: 0 auto;
 	padding-top: 15px;
@@ -76,7 +77,7 @@ h2.section-title {
 
 #partner-map, #deployments-map {
 	width: 80vw;
-	height:25vw;
+	height:30vw;
 	margin: 0 auto;
 	order: 1;
 }
@@ -102,46 +103,51 @@ h2.section-title {
         display: inline-block;
     }
 
-#filters label {
-    font-family: Hind, Helvetica, Arial, sans-serif;
-	font-size: 75%;
-	padding: 2px 7px;
-    cursor: pointer;
-}
-
 .custom-popup .leaflet-popup-tip-container {
 	width: 0px;
 	height: 0px;
 }
 
-label[for="Mod Sandbox Key Partner"] {
+label[for="MOD Sandbox Key Partner"] {
 	background-color: #d1441e;
 	color: #fff;
+    display: block;
+    padding-left: 10px;
+    cursor: pointer;
 }
 
-label[for="Partner"] {
+label[for="MOD Sandbox Partner"] {
 	background-color: #084c8d;
 	color: #fff;
+    display: block;
+    padding-left: 10px;
+    cursor: pointer;
 }
 
 label[for="Data Provider"] {
 	background-color: #9CF;
 	color: #fff;
+    display: block;
+    padding-left: 10px;
+    cursor: pointer;
 }
 
 label[for="Official OTP Deployment"] {
 	background-color: #d1441e;
 	color: #fff;
+    cursor: pointer;
 }
 
 label[for="Unofficial OTP Deployment"] {
 	background-color: #084c8d;
 	color: #fff;
+    cursor: pointer;
 }
 
 label[for="OTP Prototype, Technical Previews, Demos"] {
 	background-color: #9CF;
 	color: #fff;
+    cursor: pointer;
 }
 
 #timeline-embed {
@@ -150,32 +156,42 @@ label[for="OTP Prototype, Technical Previews, Demos"] {
     margin:0 auto;
 }
 
-#partnerstext, #deploymenttext {
+#partner-map-navigation, #deploymenttext {
 	margin-top: 10px;
 	order: 2;
 }
-    #partnerstext div, #deploymenttext div {
+    div.checkbox-div {
+        width: 25vw;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #MOD-Sandbox-Key-Partner input, #MOD-Sandbox-Partner input, #Data-Provider input {
+        display: none;
+    }
+
+    div.partners, #deploymenttext div {
         padding: 10px;
         margin: 5px;
         display: inline-block;
         border: 0.25px solid #eee;
         vertical-align: middle;
     }
-        #partnerstext div:hover, #deploymenttext div:hover {
+        div.partners:hover, #deploymenttext div:hover {
             background-color: #eee;
         }
-        #partnerstext p, #deploymenttext p {
+        p.partners, #deploymenttext p {
             width: 100%;
             font-size: 75%;
             padding: 0;
             font-family: Hind, Helvetica, Arial, sans-serif;
         }
-            #partnerstext p span, #deploymenttext p span {
+            p.partners span, #deploymenttext p span {
                 display: inline-block;
                 padding: 2px 7px !important;
                 font-weight: 500;
             }
-            #partnerstext a, #deploymenttext a {
+            a.partners, #deploymenttext a {
                 display: inline-block;
                 text-decoration: none;
                 color: #000;
@@ -185,7 +201,7 @@ label[for="OTP Prototype, Technical Previews, Demos"] {
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-                #partnerstext a:hover, #deploymenttext a:hover {
+                a.partners:hover, #deploymenttext a:hover {
                     text-decoration: underline;
                 }
 
@@ -204,9 +220,20 @@ label[for="OTP Prototype, Technical Previews, Demos"] {
         transition-timing-function: ease-out;
     }
 
+.slack {
+    display: inline-block;
+    vertical-align: middle;
+    width: 39vw;
+    padding-right: 15px;
+}
+    p.slack {
+        width: 100%;
+    }
+    img.slack {
+        max-height:100%;
+        max-width:100%;
+    }
 
-
-/*OTP PARTNERS AND DEPLOYMENT MAP*/
 .companies {
 	position: relative;
 	margin: 10px;

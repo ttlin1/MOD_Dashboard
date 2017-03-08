@@ -12,9 +12,9 @@
      "description":"1800 SW 1st Ave #300, Portland, OR 97201",
      "marker-color":"#d1441e",
  	"marker-size":"large",
-     "status":"Mod Sandbox Key Partner",
+     "status":"MOD Sandbox Key Partner",
  	"url":"http://www.trimet.org",
-     "logo":"img/partners/trimet.jpg"
+     "logo":"img/partners/trimet.png"
      }
    },
    {
@@ -28,7 +28,7 @@
      "description":"1200 New Jersey Avenue SE, Washington, DC 20590",
      "marker-color":"#d1441e",
      "marker-size":"large",
-     "status":"Mod Sandbox Key Partner",
+     "status":"MOD Sandbox Key Partner",
      "url":"https://www.transit.dot.gov/",
      "logo":"img/partners/fta.png"
      }
@@ -44,7 +44,7 @@
      "description":"641 S St NW - 3rd Floor, Washington, D.C. 20001",
      "marker-color":"#d1441e",
      "marker-size":"large",
-     "status":"Mod Sandbox Key Partner",
+     "status":"MOD Sandbox Key Partner",
      "url":"http://conveyal.com/",
      "logo":"img/partners/conveyal.png"
      }
@@ -60,9 +60,9 @@
      "description":"55 St. Clair Avenue West 7th Floor, Toronto ON M4V 2Y7",
      "marker-color":"#d1441e",
      "marker-size":"large",
-     "status":"Mod Sandbox Key Partner",
+     "status":"MOD Sandbox Key Partner",
      "url":"http://www.ibigroup.com/",
-     "logo":"img/partners/ibi.jpg"
+     "logo":"img/partners/ibi.png"
      }
    },
   {
@@ -76,9 +76,9 @@
     "description":"201 Spear St, San Francisco, CA 94105",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner",
+    "status":"MOD Sandbox Key Partner",
 	"url":"https://mapzen.com/",
-    "logo":"img/partners/mapzen.jpg"
+    "logo":"img/partners/mapzen.png"
     }
   },
   {
@@ -92,9 +92,9 @@
     "description":"600 NE Grand Ave, Portland, OR 97232",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner",
+    "status":"MOD Sandbox Key Partner",
 	"url":"http://www.oregonmetro.gov/",
-    "logo":"img/partners/metro.jpg"
+    "logo":"img/partners/metro.png"
     }
   },
   {
@@ -108,9 +108,9 @@
     "description":"209 NW 4th Ave #200, Portland, OR 97209",
     "marker-color":"#d1441e",
 	"marker-size":"large",
-    "status":"Mod Sandbox Key Partner",
+    "status":"MOD Sandbox Key Partner",
 	"url":"https://moovel-group.com/",
-    "logo":"img/partners/moovel.jpg"
+    "logo":"img/partners/moovel.png"
     }
   },
   {
@@ -123,9 +123,9 @@
     "title":"AC Transit",
     "description":"1600 Franklin Street, Oakland, CA 94612",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
   "url":"http://www.actransit.org/",
-    "logo":"img/partners/ac-transit.jpg"
+    "logo":"img/partners/actransit.png"
     }
   },
   {
@@ -138,7 +138,7 @@
     "title":"BART",
     "description":"300 Lakeside Drive - 18th Floor, Oakland, CA 94612",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
   "url":"https://www.bart.gov/",
     "logo":"img/partners/bart.png"
     }
@@ -147,13 +147,13 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [-121.939699, 37.400273]
+       "coordinates":  [-71.145022,42.394303]
     },
     "properties": {
     "title":"Cambridge Systematics",
-    "description":"100 CambridgePark Drive Suite 400, Cambridge, MA  02140",
+    "description":"100 CambridgePark Drive Suite 400, Cambridge, MA 02140",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
     "url":"https://www.camsys.com/",
     "logo":"img/partners/cambridge-systematics.png"
     }
@@ -166,9 +166,9 @@
     },
     "properties": {
     "title":"Center for Urban Transportation Research - University of South Florida",
-    "description":"3808 USF Alumni Drive, Tampa, Fl, 33620-5375",
+    "description":"3808 USF Alumni Drive, Tampa, Fl, 33620",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
   "url":"https://www.cutr.usf.edu/",
     "logo":"img/partners/usf.png"
     }
@@ -183,7 +183,7 @@
     "title":"LA Metro",
     "description":"One Gateway Plaza, Los Angeles, CA 90012",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
   "url":"https://www.metro.net/",
     "logo":"img/partners/la-metro.png"
     }
@@ -192,15 +192,15 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [-122.678675,45.515656]
+       "coordinates":  [-122.678676,45.515656]
     },
     "properties": {
     "title":"Portland Bureau of Transportation",
     "description":"1120 SW Fifth Ave Suite 800, Portland, OR 97204",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
   "url":"https://www.portlandoregon.gov/transportation/",
-    "logo":"img/partners/city-of-portland.jpg"
+    "logo":"img/partners/city-of-portland.png"
     }
   },
   {
@@ -213,7 +213,7 @@
     "title":"Portland Streetcar",
     "description":"1120 SW Fifth Ave Suite 800, Portland, OR 97204",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
     "url":"https://portlandstreetcar.org/",
     "logo":"img/partners/streetcar.png"
     }
@@ -228,8 +228,8 @@
     "title":"Regional Transportation District",
     "description":"1600 Blake Street, Denver, CO 80202",
     "marker-color":"#084c8d",
-    "status":"Partner",
-  "url":"http://www.rtd-denver.com/",
+    "status":"MOD Sandbox Partner",
+    "url":"http://www.rtd-denver.com/",
     "logo":"img/partners/rtd.png"
     }
   },
@@ -243,8 +243,8 @@
     "title":"Santa Clara Valley Transportation Authority",
     "description":"3331 North First Street, San Jose, CA 95134",
     "marker-color":"#084c8d",
-    "status":"Partner",
-  "url":"http://www.vta.org/",
+    "status":"MOD Sandbox Partner",
+    "url":"http://www.vta.org/",
     "logo":"img/partners/vta.png"
     }
   },
@@ -258,7 +258,7 @@
     "title":"Trillium Transit",
     "description":"610 SW Broadway Suite 308, Portland, OR 97205",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
 	"url":"http://trilliumtransit.com/",
     "logo":"img/partners/trillium.png"
     }
@@ -273,7 +273,7 @@
     "title":"Vermont Agency of Transportation",
     "description":"One National Life Drive, Montpelier, VT 05633-5001",
     "marker-color":"#084c8d",
-    "status":"Partner",
+    "status":"MOD Sandbox Partner",
     "url":"http://vtrans.vermont.gov/",
     "logo":"img/partners/vermont.png"
     }
@@ -320,7 +320,7 @@
     "marker-color":"#9cf",
     "status":"Data Provider",
 	"url":"https://www.uber.com/",
-    "logo":"img/partners/uber.jpg"
+    "logo":"img/partners/uber.png"
     }
   }
 ]

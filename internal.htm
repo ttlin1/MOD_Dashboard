@@ -109,17 +109,13 @@
             </div><!-- .row -->
         </div><!-- .contentcontainer -->
 
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="chart_container">
+        <div class="mod-container">
                     <div class="full_chart" id="gantt">
                         <!-- <script src="./js/gantt.js"></script> -->
                         <embed class="full_chart" src="https://plot.ly/~mosteele/25.embed?autosize=True&link=false&modebar=false&logo=false">
                     </div>
 					<p class="small hcenter">The MOD Sandbox project is divided into six main tasks&colon; Project Management&comma; Evaluations &amp; Reports&comma; Application Development&comma; Geocoder Development&comma; Data Improvements and an Integrated Payment Plan.</p>
-				</div>
-            </div><!-- .col -->
-        </div><!-- .row -->
+		</div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PROGRESS END ------->
 
@@ -161,107 +157,95 @@
 <!------- PARTNERSHIPS BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="partners">Partnerships</h2>
-        <div class="contentcontainer">
-            <div class="row">
-                <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-                    <h3 class="hcenter">This project is a collaborative effort. TriMet has partnered with the following organizations nationwide.</h3>
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div><!-- .contentcontainer -->
+        <h3 class="hcenter">This project is a collaborative effort. TriMet has partnered with the following organizations nationwide.</h3>
 
-        <div class="row">
-            <div class="col-xs-12">
+        <div class="map-container">
+            <div id="partner-map-navigation">
+                <nav id="partner-filters" class="filter-ui"></nav>
+            </div>
+            <div class="custom-popup" id="partner-map">
+                <script>
+                L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
+                var map = L.mapbox.map('partner-map', 'mapbox.light', {
+                    scrollWheelZoom: false
+                });
+                map.setView([39.828175,-98.5795], 4);
 
-                <div class="map-container">
-                    <div id="partner-map-navigation">
-                        <nav id="partner-filters" class="filter-ui"></nav>
-                    </div>
-                    <div id="partnerstext">
-                    </div>
-                    <div class="custom-popup" id="partner-map">
-                        <script>
-                        L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
-                        var map = L.mapbox.map('partner-map')
-                            .setView([39.828175,-98.5795], 4)
-                            .addLayer(L.mapbox.tileLayer('mapbox.light'));
+                var filters = document.getElementById('partner-filters');
+                var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
+                var partners = document.getElementById('partnerstext');
 
-                        var filters = document.getElementById('partner-filters');
-                        var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
-                        var partners = document.getElementById('partnerstext');
+                markers.addTo(map);
 
-                        markers.addTo(map);
+                markers.on('ready', function(e) {
+                    var typesObj = {},
+                    types = [];
+                    var features = e.target._geojson.features;
+                    for (var i = 0; i < features.length; i++) {
+                        typesObj[features[i].properties['status']] = true;
+                    }
+                    for (var key in typesObj) {
+                        if ({}.hasOwnProperty.call(typesObj, key)) {
+                            types.push(key);
+                        }
+                    }
 
-                        markers.on('ready', function(e) {
-                            var typesObj = {},
-                            types = [];
-                            var features = e.target._geojson.features;
-                            for (var i = 0; i < features.length; i++) {
-                                typesObj[features[i].properties['status']] = true;
-                            }
-                            for (var key in typesObj) {
-                                if ({}.hasOwnProperty.call(typesObj, key)) {
-                                    types.push(key);
-                                }
-                            }
+                    var checkboxes = [];
+                    for (var j = 0; j < types.length; j++) {
+                        var item = filters.appendChild(document.createElement('div'));
+                        var checkbox = item.appendChild(document.createElement('input'));
+                        var label = item.appendChild(document.createElement('label'));
+                        var current_status = String(types[j]).replace(/ /g, "-");
+                        item.id = current_status;
+                        checkbox.type = 'checkbox';
+                        checkbox.id = types[j];
+                        document.getElementById(current_status).className = "checkbox-div";
+                        checkbox.checked = true;
+                        label.innerHTML = types[j];
+                        label.setAttribute('for', types[j]);
+                        checkbox.addEventListener('change', update);
+                        checkboxes.push(checkbox);
+                    }
 
-                            var checkboxes = [];
-                            for (var j = 0; j < types.length; j++) {
-                                var item = filters.appendChild(document.createElement('div'));
-                                var checkbox = item.appendChild(document.createElement('input'));
-                                var label = item.appendChild(document.createElement('label'));
-                                checkbox.type = 'checkbox';
-                                checkbox.id = types[j];
-                                checkbox.checked = true;
-                                label.innerHTML = types[j];
-                                label.setAttribute('for', types[j]);
-                                checkbox.addEventListener('change', update);
-                                checkboxes.push(checkbox);
-                            }
-
-                            for (var i = 0; i < features.length; i++) {
-                                var pbox = partners.appendChild(document.createElement('div'));
-                                var pboxtext = pbox.appendChild(document.createElement('p'));
-                                let title = features[i].properties['title'];
-                                let desc = features[i].properties['description'];
-                                let text_color = features[i].properties['marker-color'];
-                                let partner_status = features[i].properties['status'];
-                                pbox.style.cursor = 'pointer';
-                                pbox.id = String(features[i].geometry['coordinates']) + text_color;
-                                pbox.class = partner_status.replace(" ", "-");
-                                let longitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[0]);
-                                let latitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[1]);
-                                let url_path = features[i].properties['url'];
-                                let logo = features[i].properties['logo'];
-                                document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
-                                    map.setView([latitude, longitude], 15);
-                                    var popup = L.popup()
-                                        .setLatLng([latitude + 0.002, longitude])
-                                        .setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '" target="_blank">' + url_path + '</a></p>')
-                                        .openOn(map);
-                                });
-                                // pbox.style.background = 'url(' + logo + ') no-repeat';
-                                pbox.style.height = '100px';
-                                pbox.style.width = '150px';
-                                pbox.innerHTML = '<img src="' + logo + '" style="max-height:100%;max-width:100%;display:block;margin:auto;">';
-                            }
-
-                            function update() {
-                                var enabled = {};
-                                for (var k = 0; k < checkboxes.length; k++) {
-                                    if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
-                                }
-
-                                markers.setFilter(function(feature) {
-                                    return feature.properties['status'] in enabled;
-                                });
-                            }
+                    for (var i = 0; i < features.length; i++) {
+                        // var pbox = partners.appendChild(document.createElement('div'));
+                        let title = features[i].properties['title'];
+                        let desc = features[i].properties['description'];
+                        let text_color = features[i].properties['marker-color'];
+                        let partner_status = String(features[i].properties['status']).replace(/ /g, "-");
+                        var div_id = document.getElementById(partner_status);
+                        var pbox = div_id.appendChild(document.createElement('div'));
+                        pbox.id = String(features[i].geometry['coordinates']) + text_color;
+                        document.getElementById(String(features[i].geometry['coordinates']) + text_color).className = "partners";
+                        let longitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[0]);
+                        let latitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[1]);
+                        let url_path = features[i].properties['url'];
+                        let logo = features[i].properties['logo'];
+                        document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
+                            map.setView([latitude, longitude], 15);
+                            var popup = L.popup()
+                                .setLatLng([latitude + 0.002, longitude])
+                                .setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '" target="_blank">' + url_path + '</a></p>')
+                                .openOn(map);
                         });
-                    </script>
-                    </div>
-                </div><!-- .map-container -->
-            </div><!-- .col -->
-        </div><!-- .row -->
+                        pbox.style = 'cursor: pointer; height: 15vh; max-height: 75px; width: 10vw; max-width: 110px; line-height: 6vh; text-align: center; border: 0.25px solid' + text_color;
+                        pbox.innerHTML = '<img src="' + logo + '" style="max-height:100%;max-width:100%;vertical-align:middle;margin:auto">';
+                    }
 
+                    function update() {
+                        var enabled = {};
+                        for (var k = 0; k < checkboxes.length; k++) {
+                            if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
+                        }
+
+                        markers.setFilter(function(feature) {
+                            return feature.properties['status'] in enabled;
+                        });
+                    }
+                });
+                </script>
+            </div>
+        </div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PARTNERSHIPS END ------->
 
@@ -279,27 +263,22 @@
         <div class="contentcontainer">
             <div class="row">
                 <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-                    <p>We use Trello as a team To&dash;Do list and as a place to keep track of meetings. Follow along with us through the Trello board below.</p>
+                    <p>We use <a href="https://trello.com/">Trello</a> for project management. Follow real&dash;time status&comma; to&dash;do lists&comma; meetings and schedules on the boards below.</p>
                 </div><!-- .col -->
             </div><!-- .row -->
         </div><!-- .contentcontainer -->
 
 
-        <div class="row">
-            <div class="col-xs-12">
+        <div class="mod-container">
                 <div class="trello_board">
                     <embed class="trello_board" src="https://trello.com/b/rJ3RAeVr.html">
                 </div>
 
-                <p>&nbsp;</p>
-
                 <div class="drive_board">
-                    <p class="hcenter">Project documents are shared through Google Drive. You will need permissions to view the files below.</p>
+                    <p class="hcenter">Project documents are shared through Google Drive.</p>
                     <embed class="drive_board" src="https://drive.google.com/embeddedfolderview?id=0B1jz7f2gE4K5dnlUQUFDcXVCVTQ#list" frameborder="0">
                 </div>
-
-            </div><!-- .col -->
-        </div><!-- .row -->
+        </div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PROJECT MANAGEMENT END ------->
 
@@ -324,16 +303,6 @@
 						<li>Geocoder Discussion on Slack&comma; March 9&comma; 10&dash;11am PST</li>
 					</ul>
 				</div><!-- .col -->
-
-                <div class="col-xs-12 col-md-4">
-                    <div class="box">
-                        <ul class="links">
-							<li><a href="./calendar/Test.ics" download="Test.ics">Download the calendar (iCalendar).</a></li>
-							<li><a href="./calendar/Test.pst" download="Test.pst">Download the calendar (Outlook).</a></li>
-						</ul>
-					</div>
-				</div><!-- .col -->
-			</div><!-- .row -->
 		</div><!-- .contentcontainer -->
 
         <div class="contentcontainer">
@@ -405,15 +374,13 @@
 <!------- EVALUATIONS AND METRICS BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="evaluations">Evaluations and Metrics</h2>
-        <div class="row">
-            <div class="col-xs-12 hcenter">
+        <div class="mod-container">
                 <embed class="full_chart" src="https://plot.ly/~mosteele/49.embed?autosize=True&link=false&modebar=false&logo=false">
                 <p class="small hcenter">This chart shows the total number of public comments we received by week. Portland received almost one foot of snow the week ending January 15!</p>
 
                 <embed class="full_chart" src="https://plot.ly/~mosteele/51.embed?autosize=True&link=false&modebar=false&logo=false">
                 <p class="small hcenter">The pie chart shows the breakdown of the public comments by category.</p>
-            </div><!-- .col -->
-        </div><!-- .row -->
+        </div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- EVALUATIONS AND METRICS END ------->
 
@@ -423,7 +390,6 @@
             <p class="top"><a href="#top">Top</a></p>
         </div>
     </div><!-- .fullwidth -->
-
 <!-- InstanceEndEditable -->
 </section><!-- #.content -->
 <!--#include virtual="/asset/includes/footer.htm" -->

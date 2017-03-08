@@ -19,11 +19,12 @@
 	<script src="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js"></script>
 	<link href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet" />
 	<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js"></script>
-
 	<link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
 	<script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
 	<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js"></script>
 
+	<!-- <link rel="stylesheet" href="https://trimet.org/asset/css/style.min.css" />
+    <link rel="stylesheet" href="https://trimet.org/global/css/styles.min.css" type="text/css" media="all" /> -->
 	<!-- InstanceEndEditable -->
 </head>
 
@@ -117,9 +118,10 @@
 					<div class="custom-popup" id="deployments-map">
 						<script>
 						L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
-						var map = L.mapbox.map('deployments-map')
-							.setView([23, 2], 2)
-							.addLayer(L.mapbox.tileLayer('mapbox.light'));
+						var map = L.mapbox.map('deployments-map', 'mapbox.light', {
+							scrollWheelZoom: false
+						})
+						map.setView([23, 2], 2);
 
 						var filters = document.getElementById('deployments-filters');
 						var markers = L.mapbox.featureLayer().loadURL('./json/deployments.geojson');

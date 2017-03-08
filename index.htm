@@ -67,10 +67,10 @@
 			<div class="col-xs-12">
 				<ul class="anchor">
 					<li><a href="#progress" class="nav_link">Progress</a></li>
-
 					<li><a href="#partners" class="nav_link">Partnerships</a></li>
 					<li><a href="#management" class="nav_link">Project Management</a></li>
-					<li><a href="#meetings" class="nav_link">Meetings and Events</a></li>
+					<li><a href="#meetings" class="nav_link">Meetings</a></li>
+                    <li><a href="#events" class="nav_link">Events</a></li>
 					<li><a href="#evaluations" class="nav_link">Evaluation and Metrics</a></li>
 				</ul>
 			 </div><!-- .col -->
@@ -109,17 +109,13 @@
             </div><!-- .row -->
         </div><!-- .contentcontainer -->
 
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="chart_container">
+        <div class="mod-container">
                     <div class="full_chart" id="gantt">
                         <!-- <script src="./js/gantt.js"></script> -->
                         <embed class="full_chart" src="https://plot.ly/~mosteele/25.embed?autosize=True&link=false&modebar=false&logo=false">
                     </div>
 					<p class="small hcenter">The MOD Sandbox project is divided into six main tasks&colon; Project Management&comma; Evaluations &amp; Reports&comma; Application Development&comma; Geocoder Development&comma; Data Improvements and an Integrated Payment Plan.</p>
-				</div>
-            </div><!-- .col -->
-        </div><!-- .row -->
+		</div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PROGRESS END ------->
 
@@ -134,105 +130,95 @@
 <!------- PARTNERSHIPS BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="partners">Partnerships</h2>
-        <div class="contentcontainer">
-            <div class="row">
-                <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-                    <h3 class="hcenter">This project is a collaborative effort. TriMet has partnered with the following organizations nationwide.</h3>
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div><!-- .contentcontainer -->
 
-        <div class="row">
-            <div class="col-xs-12">
+        <div class="map-container">
+            <p class="hcenter">This project is a collaborative effort. TriMet has partnered with the following organizations nationwide:</p>
+            <div id="partner-map-navigation">
+                <nav id="partner-filters" class="filter-ui"></nav>
+            </div>
+            <div class="custom-popup" id="partner-map">
+                <script>
+                L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
+                var map = L.mapbox.map('partner-map', 'mapbox.light', {
+                    scrollWheelZoom: false
+                });
+                map.setView([39.828175,-98.5795], 4);
 
-                <div class="map-container">
-                    <div id="partner-map-navigation">
-                        <nav id="partner-filters" class="filter-ui"></nav>
-                    </div>
-                    <div id="partnerstext">
-                    </div>
-                    <div class="custom-popup" id="partner-map">
-                        <script>
-                        L.mapbox.accessToken = 'pk.eyJ1IjoidHRsaW4xIiwiYSI6ImNpeW5hZWt3eTAwMHY0M3F6NTJtY2cwN3IifQ.OeAih8x-MUWxhRiFj98Q2Q';
-                        var map = L.mapbox.map('partner-map')
-                            .setView([39.828175,-98.5795], 4)
-                            .addLayer(L.mapbox.tileLayer('mapbox.light'));
+                var filters = document.getElementById('partner-filters');
+                var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
+                var partners = document.getElementById('partnerstext');
 
-                        var filters = document.getElementById('partner-filters');
-                        var markers = L.mapbox.featureLayer().loadURL('./json/partners.geojson');
-                        var partners = document.getElementById('partnerstext');
+                markers.addTo(map);
 
-                        markers.addTo(map);
+                markers.on('ready', function(e) {
+                    var typesObj = {},
+                    types = [];
+                    var features = e.target._geojson.features;
+                    for (var i = 0; i < features.length; i++) {
+                        typesObj[features[i].properties['status']] = true;
+                    }
+                    for (var key in typesObj) {
+                        if ({}.hasOwnProperty.call(typesObj, key)) {
+                            types.push(key);
+                        }
+                    }
 
-                        markers.on('ready', function(e) {
-                            var typesObj = {},
-                            types = [];
-                            var features = e.target._geojson.features;
-                            for (var i = 0; i < features.length; i++) {
-                                typesObj[features[i].properties['status']] = true;
-                            }
-                            for (var key in typesObj) {
-                                if ({}.hasOwnProperty.call(typesObj, key)) {
-                                    types.push(key);
-                                }
-                            }
+                    var checkboxes = [];
+                    for (var j = 0; j < types.length; j++) {
+                        var item = filters.appendChild(document.createElement('div'));
+                        var checkbox = item.appendChild(document.createElement('input'));
+                        var label = item.appendChild(document.createElement('label'));
+                        var current_status = String(types[j]).replace(/ /g, "-");
+                        item.id = current_status;
+                        checkbox.type = 'checkbox';
+                        checkbox.id = types[j];
+                        document.getElementById(current_status).className = "checkbox-div";
+                        checkbox.checked = true;
+                        label.innerHTML = types[j];
+                        label.setAttribute('for', types[j]);
+                        checkbox.addEventListener('change', update);
+                        checkboxes.push(checkbox);
+                    }
 
-                            var checkboxes = [];
-                            for (var j = 0; j < types.length; j++) {
-                                var item = filters.appendChild(document.createElement('div'));
-                                var checkbox = item.appendChild(document.createElement('input'));
-                                var label = item.appendChild(document.createElement('label'));
-                                checkbox.type = 'checkbox';
-                                checkbox.id = types[j];
-                                checkbox.checked = true;
-                                label.innerHTML = types[j];
-                                label.setAttribute('for', types[j]);
-                                checkbox.addEventListener('change', update);
-                                checkboxes.push(checkbox);
-                            }
-
-                            for (var i = 0; i < features.length; i++) {
-                                var pbox = partners.appendChild(document.createElement('div'));
-                                let title = features[i].properties['title'];
-                                let desc = features[i].properties['description'];
-                                let text_color = features[i].properties['marker-color'];
-                                let partner_status = features[i].properties['status'];
-                                pbox.style.cursor = 'pointer';
-                                pbox.id = String(features[i].geometry['coordinates']) + text_color;
-                                pbox.class = partner_status.replace(" ", "-");
-                                let longitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[0]);
-                                let latitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[1]);
-                                let url_path = features[i].properties['url'];
-                                let logo = features[i].properties['logo'];
-                                document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
-                                    map.setView([latitude, longitude], 15);
-                                    var popup = L.popup()
-                                        .setLatLng([latitude + 0.002, longitude])
-                                        .setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '" target="_blank">' + url_path + '</a></p>')
-                                        .openOn(map);
-                                });
-                                pbox.style.height = '100px';
-                                pbox.style.width = '150px';
-                                pbox.innerHTML = '<img src="' + logo + '" style="max-height:100%;max-width:100%;display:block;margin:auto;">';
-                            }
-
-                            function update() {
-                                var enabled = {};
-                                for (var k = 0; k < checkboxes.length; k++) {
-                                    if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
-                                }
-
-                                markers.setFilter(function(feature) {
-                                    return feature.properties['status'] in enabled;
-                                });
-                            }
+                    for (var i = 0; i < features.length; i++) {
+                        // var pbox = partners.appendChild(document.createElement('div'));
+                        let title = features[i].properties['title'];
+                        let desc = features[i].properties['description'];
+                        let text_color = features[i].properties['marker-color'];
+                        let partner_status = String(features[i].properties['status']).replace(/ /g, "-");
+                        var div_id = document.getElementById(partner_status);
+                        var pbox = div_id.appendChild(document.createElement('div'));
+                        pbox.id = String(features[i].geometry['coordinates']) + text_color;
+                        document.getElementById(String(features[i].geometry['coordinates']) + text_color).className = "partners";
+                        let longitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[0]);
+                        let latitude = parseFloat(String(features[i].geometry['coordinates']).split(",")[1]);
+                        let url_path = features[i].properties['url'];
+                        let logo = features[i].properties['logo'];
+                        document.getElementById(String(features[i].geometry['coordinates']) + text_color).addEventListener('click', function(){
+                            map.setView([latitude, longitude], 15);
+                            var popup = L.popup()
+                                .setLatLng([latitude + 0.002, longitude])
+                                .setContent('<p style="font-size:12px;width:100%;"><span style="font-weight:800">' + title + "</span><br>" + desc + '<br><a href="' + url_path + '" target="_blank">' + url_path + '</a></p>')
+                                .openOn(map);
                         });
-                    </script>
-                    </div>
-                </div><!-- .map-container -->
-            </div><!-- .col -->
-        </div><!-- .row -->
+                        pbox.style = 'cursor: pointer; height: 15vh; max-height: 75px; width: 10vw; max-width: 110px; line-height: 6vh; text-align: center; border: 0.25px solid' + text_color;
+                        pbox.innerHTML = '<img src="' + logo + '" style="max-height:100%;max-width:100%;vertical-align:middle;margin:auto">';
+                    }
 
+                    function update() {
+                        var enabled = {};
+                        for (var k = 0; k < checkboxes.length; k++) {
+                            if (checkboxes[k].checked) enabled[checkboxes[k].id] = true;
+                        }
+
+                        markers.setFilter(function(feature) {
+                            return feature.properties['status'] in enabled;
+                        });
+                    }
+                });
+                </script>
+            </div>
+        </div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PARTNERSHIPS END ------->
 
@@ -250,22 +236,17 @@
         <div class="contentcontainer">
             <div class="row">
                 <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-                    <p>We use Trello as a team To&dash;Do list and as a place to keep track of meetings. Follow along with us through the Trello board below.</p>
+                    <p class="hcenter">We use <a href="https://trello.com/">Trello</a> for project management. Follow real&dash;time status&comma; to&dash;do lists&comma; meetings and schedules on the boards below.</p>
                 </div><!-- .col -->
             </div><!-- .row -->
         </div><!-- .contentcontainer -->
 
 
-        <div class="row">
-            <div class="col-xs-12">
+        <div class="map-container">
                 <div class="trello_board">
                     <embed class="trello_board" src="https://trello.com/b/rJ3RAeVr.html">
                 </div>
-
-                <p>&nbsp;</p>
-
-            </div><!-- .col -->
-        </div><!-- .row -->
+        </div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PROJECT MANAGEMENT END ------->
 
@@ -277,67 +258,70 @@
     </div><!-- .fullwidth -->
 
 
-<!------- MEETINGS AND AGENDA BEGIN ------->
+<!------- MEETINGS BEGIN ------->
     <div class="fullwidth">
-        <h2 class="section-title" id="meetings">Meetings and Events</h2>
+        <h2 class="section-title" id="meetings">Meetings</h2>
         <div class="contentcontainer">
             <div class="row">
-				<div class="col-xs-12 col-md-8">
-					<h3>Upcoming Meetings and Agenda</h3>
-					<ul>
-						<li>Geocoder Discussion on Slack&comma; February 23&comma; 10&dash;11am PST</li>
-						<li>App Design and Development Discussion on Slack&comma; March 2&comma; 10&dash;11am PST</li>
-						<li>Geocoder Discussion on Slack&comma; March 9&comma; 10&dash;11am PST</li>
-					</ul>
-				</div><!-- .col -->
-
-                <div class="col-xs-12 col-md-4">
-                    <div class="box">
-                        <ul class="links">
-							<li><a href="./calendar/Test.ics" download="Test.ics">Download the calendar (iCalendar).</a></li>
-							<li><a href="./calendar/Test.pst" download="Test.pst">Download the calendar (Outlook).</a></li>
-						</ul>
-					</div>
-				</div><!-- .col -->
-			</div><!-- .row -->
+				<p>Meetings occur every Thursday from 10am - 11am Pacific Time and are conducted on rotating Slack channels:</p>
+            </div>
 		</div><!-- .contentcontainer -->
+        <div class="mod-container">
+            <div class="slack">
+                <p class="presentations"><a href="https://trimet-mod-sandbox.slack.com/messages/geocoding/" target="_blank"><img src="./img/geocoder-slack.jpg" class="img"></a></p>
+            </div>
+            <div class="slack">
+                <h3>Geocoder Meetings</h3>
+                <p>Discussions on the Pelias geocoder occur on a biweekly basis on the <a href="https://trimet-mod-sandbox.slack.com/messages/geocoding/" target="_blank">Geocoding channel.</a></p>
+				<ul>
+					<li>February 9, 2017; 10&dash;11am PST</li>
+					<li>February 23, 2017; 10&dash;11am PST</li>
+                    <li>March 9, 2017; 10&dash;11am PST</li>
+                    <li>March 23, 2017; 10&dash;11am PST</li>
+				</ul>
+            </div>
+            <div class="slack">
+                <p class="presentations"><a href="https://trimet-mod-sandbox.slack.com/messages/ui_ux_design/" target="_blank"><img src="./img/general-slack.jpg" class="img"></a></p>
+            </div>
+            <div class="slack">
+                <h3>Application Development Meetings</h3>
+                <p>Discussions on the Application Development occur on a biweekly basis on the <a href="https://trimet-mod-sandbox.slack.com/messages/general/" target="_blank">General Channel</a>&comma; <a href="https://trimet-mod-sandbox.slack.com/messages/ui_ux_design/" target="_blank">UI/UX Channel</a>&comma; and the <a href="https://trimet-mod-sandbox.slack.com/messages/routing_backend/" target="_blank">Routing Backend Channel.</a></p>
+                <ul>
+                    <li>February 16, 2017; 10&dash;11am PST</li>
+                    <li>March 2, 2017; 10&dash;11am PST</li>
+                    <li>March 16, 2017; 10&dash;11am PST</li>
+                    <li>March 30, 2017; 10&dash;11am PST</li>
+                </ul>
+            </div>
+        </div><!-- .mod-container-->
+    </div><!-- .fullwidth -->
+<!------- MEETINGS END ------->
 
+
+<div class="fullwidth">
+    <div class="contentcontainer">
+        <p class="top"><a href="#top">Top</a></p>
+    </div>
+</div><!-- .fullwidth -->
+
+
+<!------- EVENTS BEGIN ------->
+    <div class="fullwidth">
+        <h2 class="section-title" id="events">Events</h2>
         <div class="contentcontainer">
-            <div class="row">
-				<div class="col-xs-12 col-md-8">
-					<h3>January 18 &dash; 19&comma; 2017 Workshop Kickoff</h3>
-					<p>On January 18th and 19th&comma; TriMet hosted a workshop to kickoff the MOD Sandbox project that drew over forty participants. Over the two-day workshop&comma; participants worked in breakout sessions on the following topics:</p>
-
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                            <ul class="links">
-                                <li><a href="">Geocoding - Integration with new OTP/Trimet Website</a></li>
-                                <li><a href="">Fares/Incentives in OTP</a></li>
-                                <li><a href="">Routing Engine - Flex+SUM+RT+Accessibility</a></li>
-                                <li><a href="">UI/UX - Flex+SUM+RT+Accessibility</a></li>
-                            </ul>
-                        </div><!-- .col -->
-                        <div class="col-xs-12 col-sm-6">
-                            <ul class="links">
-                                <li><a href="" target="_blank">UI/UX - Integration with Trimet</a></li>
-                                <li><a href="" target="_blank">OTP Infrastructure and Build Management Decisions</a></li>
-                                <li><a href="" target="_blank">OTP Web Services/Middle Tier</a></li>
-                                <li><a href="" target="_blank">UI/UX - Journeys and Scenarios/ Testing Process</a></li>
-                            </ul>
-                        </div><!-- .col -->
-                    </div><!-- .row -->
-
-                    <p>&nbsp;</p>
-
-                    <h3 class="hcenter">The presentations by our key partners are available below:</h3>
-
-                </div><!-- .col -->
-            </div><!-- .row -->
+            <h3>Project Kickoff Workshop January 18 &dash; 19&comma; 2017</h3>
+            <p>On January 18th and 19th&comma; TriMet hosted a workshop to kickoff the MOD Sandbox project that drew over forty participants. The workshop report can be found below:</p>
+            <p>&nbsp;</p>
+            <div class="drive_board" style="border:1px solid #eee;">
+                <embed class="drive_board" src="https://docs.google.com/document/d/1vhTZcvBCp_2wQF9z1iNrT2nU3r31ZNi_5veKZ6my7lQ/pub?embedded=true">
+            </div>
+            <p>&nbsp;</p>
         </div><!-- .contentcontainer -->
 
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
                 <div class="row">
+                    <p class="hcenter">The workshop presentations from our key partners can be viewed by clicking the presentations below:</p>
                     <div class="col-xs-10 col-xs-offset-1 col-ms-6 col-ms-offset-0 col-sm-6 col-sm-offset-0 col-md-4">
                         <p class="presentations"><a href="https://drive.google.com/open?id=1gv2eHgkqwFrQfudgaGWbF9ylMK2FItSauRRHiuwoGaw" target="_blank"><img src="./img/trimet_kickoff.jpg" class="img" /></a></p>
                     </div><!-- .col -->
@@ -358,7 +342,7 @@
             </div><!-- .col -->
         </div><!-- .row -->
     </div><!-- .fullwidth -->
-<!------- MEETINGS AND AGENDA END ------->
+<!------- EVENTS END ------->
 
 
     <div class="fullwidth">
@@ -368,27 +352,33 @@
     </div><!-- .fullwidth -->
 
 
-    <!------- EVALUATIONS AND METRICS BEGIN ------->
-        <div class="fullwidth">
-            <h2 class="section-title" id="evaluations">Evaluations and Metrics</h2>
-            <div class="row">
-                <div class="col-xs-12 hcenter">
-                    <embed class="full_chart" src="https://plot.ly/~mosteele/49.embed?autosize=True&link=false&modebar=false&logo=false">
-                    <p class="small hcenter">This chart shows the total number of public comments we received by week. Portland received almost one foot of snow the week ending January 15!</p>
-
-                    <embed class="full_chart" src="https://plot.ly/~mosteele/51.embed?autosize=True&link=false&modebar=false&logo=false">
-                    <p class="small hcenter">The pie chart shows the breakdown of the public comments by category.</p>
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div><!-- .fullwidth -->
-    <!------- EVALUATIONS AND METRICS END ------->
-
-
-        <div class="fullwidth">
-            <div class="contentcontainer">
-                <p class="top"><a href="#top">Top</a></p>
+<!------- EVALUATIONS AND METRICS BEGIN ------->
+    <div class="fullwidth">
+        <h2 class="section-title" id="evaluations">Evaluations and Metrics</h2>
+        <div class="contentcontainer">
+            <p class="hcenter">The MOD Sandbox project will be evaluated improved address location (through the Pelias geocoder)&comma; trip planning and equity and accessibility.</p>
+            <p class="hcenter">The draft evaluation report can be found below:</p>
+            <div class="drive_board">
+                <!-- <embed class="drive_board" src="https://docs.google.com/presentation/d/17Ok54d4-IqYNdY0dw96Soy1Lc05u_jjpi0G-yOvhukQ/embed?start=false&loop=true&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"> -->
+                <iframe class="drive_board" src="https://docs.google.com/presentation/d/17Ok54d4-IqYNdY0dw96Soy1Lc05u_jjpi0G-yOvhukQ/embed?start=false&loop=true&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
-        </div><!-- .fullwidth -->
+        </div>
+        <div class="mod-container">
+                <embed class="full_chart" src="https://plot.ly/~mosteele/49.embed?autosize=True&link=false&modebar=false&logo=false">
+                <p class="small hcenter">This chart shows the total number of public comments we received by week. Portland received almost one foot of snow the week ending January 15!</p>
+
+                <embed class="full_chart" src="https://plot.ly/~mosteele/51.embed?autosize=True&link=false&modebar=false&logo=false">
+                <p class="small hcenter">The pie chart shows the breakdown of the public comments by category.</p>
+        </div><!-- .mod-container -->
+    </div><!-- .fullwidth -->
+<!------- EVALUATIONS AND METRICS END ------->
+
+
+    <div class="fullwidth">
+        <div class="contentcontainer">
+            <p class="top"><a href="#top">Top</a></p>
+        </div>
+    </div><!-- .fullwidth -->
 <!-- InstanceEndEditable -->
 </section><!-- #.content -->
 <!--#include virtual="/asset/includes/footer.htm" -->
