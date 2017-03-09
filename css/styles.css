@@ -205,20 +205,24 @@ label[for="OTP Prototype, Technical Previews, Demos"] {
                     text-decoration: underline;
                 }
 
-
-.presentations img {
-    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, .2);
-    transition-property: box-shadow;
-    transition-duration: 0.15s;
-    transition-timing-function: ease-out;
-    margin: 1em;
+.presentations-div {
+    display: inline-block;
+    width: 25vw;
+    margin: 1vw;
 }
-    .presentations img:hover {
-        box-shadow: 0px 0px 0px 5px rgba(109, 179, 63, 1);
+    .presentations img {
+        box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, .2);
         transition-property: box-shadow;
-        transition-duration: 0.2s;
+        transition-duration: 0.15s;
         transition-timing-function: ease-out;
+        margin: 10px;
     }
+        .presentations img:hover {
+            box-shadow: 0px 0px 0px 5px rgba(109, 179, 63, 1);
+            transition-property: box-shadow;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-out;
+        }
 
 .slack {
     display: inline-block;
@@ -270,7 +274,8 @@ p.companies-description {
 }
 
 .slideshow {
-    width: 1280px;
+    width: 80vw;
+    height: 80vh;
     margin: 0 auto;
     display: block;
 }
