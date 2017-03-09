@@ -46,7 +46,7 @@
 	<div class="contentcontainer">
 		<div class="row">
 			<div class="col-xs-12 col-ms-9 col-sm-9 col-md-8">
-				<p>Updated weekly&comma; this dashboard provides a snapshot of the MOD Sandbox project&rsquo;s progress. These key indicators help us track progress toward project deliverables and the budget.  In addition&comma; we will be sharing project updates and lessons learned through this dashboard.</p>
+				<p>This dashboard provides a snapshot of the MOD Sandbox project&rsquo;s progress. These key indicators help us track progress toward project deliverables and the budget.  In addition&comma; we will be sharing project updates and lessons learned through this dashboard.</p>
 			</div><!-- .col -->
 
 			<div class="col-xs-12 col-ms-3 col-sm-3 col-md-3 col-md-offset-1">
@@ -86,20 +86,21 @@
 <!------- PROGRESS BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="progress">Progress</h2>
-        <div class="mod-container">
-            <p>&nbsp;</p>
+        <div class="contentcontainer">
             <p>The MOD Sandbox project is divided into six main tasks&colon; Project Management&comma; Evaluations &amp; Reports&comma; Application Development&comma; Geocoder Development&comma; Data Improvements and an Integrated Payment Plan.</p>
+        </div>
+        <div class="mod-container">
             <div class="full_chart" id="gantt">
                 <!-- <script src="./js/gantt.js"></script> -->
                 <iframe class="full_chart" src="https://plot.ly/~mosteele/25.embed?autosize=True&link=false&modebar=false&logo=false"></iframe>
             </div>
-            <hr>
-            <h3 class="hcenter">MOD Program Quarterly Report</h3>
-            <p class="hcenter">The <a href="https://docs.google.com/document/d/18Ks_VuCD-hxVpaPQH25AbZ4cVOsPbHM7xK8SejqJqtw/edit?usp=sharing" target="_blank">MOD Program Quarterly Report</a> will available through this dashboard. The Report below is currently a draft:</p>
-            <div class="drive_board">
-                <iframe class="drive_board" style="padding:5px;border:1px solid #ccc;" src="https://docs.google.com/document/d/18Ks_VuCD-hxVpaPQH25AbZ4cVOsPbHM7xK8SejqJqtw/pub?embedded=true"></iframe>
-            </div>
         </div><!-- .mod-container -->
+        <hr>
+        <h3 class="hcenter">MOD Program Quarterly Report</h3>
+        <p class="hcenter">The <a href="https://docs.google.com/document/d/18Ks_VuCD-hxVpaPQH25AbZ4cVOsPbHM7xK8SejqJqtw/edit?usp=sharing" target="_blank">MOD Program Quarterly Report</a> will available through this dashboard. It is currently a draft version.</p>
+        <!-- <div class="drive_board">
+            <iframe class="drive_board" style="padding:5px;border:1px solid #ccc;" src="https://docs.google.com/document/d/18Ks_VuCD-hxVpaPQH25AbZ4cVOsPbHM7xK8SejqJqtw/pub?embedded=true"></iframe>
+        </div> -->
     </div><!-- .fullwidth -->
 <!------- PROGRESS END ------->
 
@@ -114,8 +115,10 @@
 <!------- PARTNERSHIPS BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="partners">Partnerships</h2>
+        <div class="contentcontainer">
+            <p>This project is a collaborative effort. TriMet has partnered with the following organizations nationwide:</p>
+        </div>
         <div class="map-container">
-            <p class="hcenter">This project is a collaborative effort. TriMet has partnered with the following organizations nationwide:</p>
             <div id="partner-map-navigation">
                 <nav id="partner-filters" class="filter-ui"></nav>
             </div>
@@ -217,17 +220,13 @@
     <div class="fullwidth">
         <h2 class="section-title" id="management">Project Management</h2>
         <div class="contentcontainer">
-            <div class="row">
-                <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-                    <p class="hcenter">We use <a href="https://trello.com/">Trello</a> for project management. Follow real&dash;time status&comma; to&dash;do lists&comma; meetings and schedules on the boards below.</p>
-                </div><!-- .col -->
-            </div><!-- .row -->
+            <p>We use <a href="https://trello.com/">Trello</a> for project management. Follow real&dash;time status&comma; to&dash;do lists&comma; meetings and schedules on the boards below (the boards may not be visible if your browser version is not supported; if so, view the boards by <a href="https://trello.com/b/rJ3RAeVr/trimet-mod-project" target="_blank"> clicking here</a>).</p>
         </div><!-- .contentcontainer -->
 
         <div class="mod-container">
-                <div class="trello_board">
-                    <iframe class="trello_board" src="https://trello.com/b/rJ3RAeVr.html"></iframe>
-                </div>
+            <div class="trello_board">
+                <embed class="trello_board" src="https://trello.com/b/rJ3RAeVr.html">
+            </div>
         </div><!-- .mod-container -->
     </div><!-- .fullwidth -->
 <!------- PROJECT MANAGEMENT END ------->
@@ -244,9 +243,7 @@
     <div class="fullwidth">
         <h2 class="section-title" id="meetings">Meetings</h2>
         <div class="contentcontainer">
-            <div class="row">
-                <p>Meetings occur every Thursday from 10am - 11am Pacific Time and are conducted on rotating Slack channels:</p>
-            </div>
+            <p>Meetings occur every Thursday from 10am - 11am Pacific Time and are conducted on rotating Slack channels:</p>
 		</div><!-- .contentcontainer -->
         <div class="mod-container">
             <div class="slack">
@@ -339,12 +336,13 @@
 <!------- EVALUATIONS AND METRICS BEGIN ------->
     <div class="fullwidth">
         <h2 class="section-title" id="evaluations">Evaluations and Metrics</h2>
+        <div class="contentcontainer">
+            <p>The MOD Sandbox project will be evaluated on improved address location (the Pelias geocoder)&comma; trip planning and equity and accessibility. The draft evaluation report can be found below:</p>
+        </div>
         <div class="mod-container">
-            <p class="hcenter">The MOD Sandbox project will be evaluated on improved address location (the Pelias geocoder)&comma; trip planning and equity and accessibility.</p>
-            <p class="hcenter">The draft evaluation report can be found below:</p>
             <!-- <embed class="drive_board" src="https://docs.google.com/presentation/d/17Ok54d4-IqYNdY0dw96Soy1Lc05u_jjpi0G-yOvhukQ/embed?start=false&loop=true&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"> -->
             <div style="margin: 0 auto;">
-                <iframe class="slideshow" src="https://docs.google.com/presentation/d/17Ok54d4-IqYNdY0dw96Soy1Lc05u_jjpi0G-yOvhukQ/embed?start=false&loop=true&delayms=3000" frameborder="0" width="80vw" height="100%" margin="0 auto" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                <iframe class="slideshow" src="https://docs.google.com/presentation/d/17Ok54d4-IqYNdY0dw96Soy1Lc05u_jjpi0G-yOvhukQ/embed?start=false&loop=true&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
         </div><!-- .mod-container -->
 
@@ -356,8 +354,8 @@
             <p class="hcenter">The animation below illustrates the vast improvements in our knowledge of sidewalk locations:</p>
         </div>
         <div style="margin:0 auto;width:80vw;">
-            <div style="display:inline-block;vertical-align:top;"><embed class="sidewalk" src="./gif/sidewalk-compressed.gif"></div>
-            <div style="display:inline-block;vertical-align:top;"><img src="./gif/sidewalk-legend.png"></div>
+            <div style="display:inline-block;vertical-align:top;"><img style="max-width:55vw;" src="./gif/sidewalk-compressed.gif"></div>
+            <div style="display:inline-block;vertical-align:top;"><img style="max-width:22vw;" src="./gif/sidewalk-legend.png"></div>
         </div>
     </div><!-- .fullwidth -->
 <!------- EVALUATIONS AND METRICS END ------->
