@@ -60,7 +60,7 @@ trace1 = {
   "showlegend": True,
   "sort": False,
   "text": money_text,
-  "textinfo": 'none',
+  "textinfo": 'percent',
   "textposition": "auto", #"inside" | "outside" | "auto" | "none" 
   "type": "pie",
   "values": pie_df['USD']
