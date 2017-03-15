@@ -1,28 +1,13 @@
-import os
 import pandas as pd
 import plotly
 import plotly.graph_objs as go
-import numpy as np
+import sys
 
-dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-budget_csv = os.path.join(dir, 'csv/MOD_Budget_dummy_actuals.csv')
+sys.path.append("..")
+import get_MOD_budget_df
 
-df = pd.read_csv(budget_csv)
-df = df.drop([7])  # dropping totals row
+df = get_MOD_budget_df.get_budget_df()
 
-# Shorten column names
-col_name_dict = {'Tasks and Other Activities': 'Task',
-                 'MOD Grant Expenses (Budgeted)': 'MOD_budgeted',
-                 'MOD Grant Expenses (Actual)': 'MOD_spent',
-                 'In Kind Contributions (Budgeted)': 'In_kind_budgeted',
-                 'In Kind Contributions (Actual)': 'In_kind_spent'}
-df.rename(columns=col_name_dict, inplace=True)
-
-# Change 0s to nan (to avoid division by 0 error)
-df['MOD_budgeted'].replace({0: np.nan})
-df['In_kind_budgeted'].replace({0: np.nan})
-
-# Reverse sorting makes the categories draw in correct order
 df.sort_index(ascending=False, inplace=True)
 
 mod_tasks = df['Task'].apply(lambda x: x.split(": ")[-1]) + ' (MOD)'

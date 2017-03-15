@@ -35,13 +35,17 @@ for index, row in df.iterrows():
 x = df.groupby(['Primary Issue']).agg({'Primary Issue': 'count'})
 labs = x.index.tolist()
 vals = [item for sublist in x.values for item in sublist]
+val_text = ["Total count: " + str(val) for val in vals]
+
 
 fig = {
     'data': [{'labels': labs,
               'values': vals,
               'type': 'pie',
               # "hole": 0.4,
-              "hoverinfo": "label+value",
+              "text": val_text,
+              "hoverinfo": "label+text",
+              "textinfo": 'percent',
               "textposition": "inside",
               "sort": False,
               "direction": "clockwise",

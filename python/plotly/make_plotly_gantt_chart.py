@@ -94,8 +94,31 @@ for i in range(0, len(df)):
         trace['text'] = str(df['Complete'][i]) + '% complete'
         trace['hoverinfo'] = 'text'
 fig['layout']['annotations'] = bold_task_labels
-
+gray_highlight = {'fillcolor': 'rgb(220, 220, 220)',
+  'line': {'width': 0},
+  'opacity': 1,
+  'layer': 'below',
+  'type': 'rect',
+  'x0': '2017-01-01',
+  'x1': '2017-3-31',
+  'xref': 'x',
+  'y0': -0.5,
+  'y1': len(df['Task']) - 1,
+  'yref': 'y'}
+fig['layout']['shapes'].append(gray_highlight)
+ 
+current_q_label = {'ax': 0,
+  'ay': -40,
+  'font': {'size': 12, 'color': 'rgb(180, 180, 180)'},
+  'showarrow': False,
+  'text': '<i>Current Quarter</i>',
+  'x': '2017-02-15',
+#  'xanchor': 'right',
+#  'xref': 'paper',
+  'y': len(df['Task']),
+  'yref': 'y'}
+fig['layout']['annotations'].append(current_q_label)
 plotly.offline.plot(fig)
-#plotly.plotly.iplot(fig,
-#                    filename='MOD_Grant_gantt_chart',
-#                    world_readable=True)
+plotly.plotly.iplot(fig,
+                    filename='MOD_Grant_gantt_chart',
+                    world_readable=True)
