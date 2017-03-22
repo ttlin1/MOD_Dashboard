@@ -1,10 +1,11 @@
+import get_MOD_budget_df
+
 import plotly
 import plotly.graph_objs as go
 import textwrap
 import sys
 
 sys.path.append("..")
-import get_MOD_budget_df
 
 df = get_MOD_budget_df.get_budget_df()
 
