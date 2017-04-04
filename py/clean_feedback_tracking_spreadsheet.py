@@ -10,10 +10,10 @@ import pandas as pd
 from pandas.tseries.holiday import USFederalHolidayCalendar as calendar
 
 # fb short for feedback here
-pi_file_dir = r'\\gisstore\gis\PUBLIC\SteeleM\OTP\OTP_feedback_tracking'
+pi_file_dir = r'\\gisstore\gis\PUBLIC\GIS\OTP\OTP_feedback_tracking'
 raw_file = join(pi_file_dir, 'OTP_feedback_tracking.xlsx')
 out_file = join(pi_file_dir, 'OTP_feedback_tracking_cleaned.xlsx')
-dash_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+dash_dir = os.path.dirname(os.path.dirname(__file__))
 out_file_no_pi = join(dash_dir, 'xlsx/OTP_feedback_tracking_cleaned_no_pi.xlsx')
 
 
