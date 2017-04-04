@@ -305,4 +305,16 @@ p.companies-description {
     #logo-image {
         display: none;
     }
+
+    .drive_board, .trello_board, .full_chart, .presentations, .slideshow {
+        display: block;
+    }
+
+    #partner-map, #partner-map-navigation {
+        display: block;
+    }
+
+    .slack {
+        width: 39vw;
+    }
 }
