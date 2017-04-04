@@ -26,12 +26,13 @@ h2.section-title {
     margin: 0 auto;
 }
 .trello_board, .drive_board {
-	width: 80%;
-	height: 735px;
+	width: 80vw;
+	height: 80vh;
     margin: 0 auto;
 }
     .drive_board {
-        height: 675px;
+        height: 50vh;
+        width: 75vw;
     }
 
 @media only screen and (min-width: 992px) { /* md screens and up */
@@ -47,8 +48,8 @@ h2.section-title {
         margin-left: 2%;
     }
     .drive_board {
-        width: 750px;
-        height: 675px;
+        height: 50vh;
+        width: 75vw;
     }
 }
 
@@ -73,6 +74,11 @@ h2.section-title {
 	width: 81vw;
 	margin: 0 auto;
 	padding-top: 15px;
+}
+
+.center-logo {
+    display: flex;
+    justify-content: center;
 }
 
 #partner-map, #deployments-map {
