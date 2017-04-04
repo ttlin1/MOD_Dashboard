@@ -31,8 +31,8 @@ h2.section-title {
     margin: 0 auto;
 }
     .drive_board {
-        height: 50vh;
-        width: 75vw;
+        width: 80%;
+        height: 735px;
     }
 
 @media only screen and (min-width: 992px) { /* md screens and up */
@@ -48,11 +48,10 @@ h2.section-title {
         margin-left: 2%;
     }
     .drive_board {
-        height: 50vh;
-        width: 75vw;
+        width: 750px;
+        height: 675px;
     }
 }
-
 
 .alert, .strata, .tripopt, .tripopt-macro {
     position: relative;
@@ -74,11 +73,6 @@ h2.section-title {
 	width: 81vw;
 	margin: 0 auto;
 	padding-top: 15px;
-}
-
-.center-logo {
-    display: flex;
-    justify-content: center;
 }
 
 #partner-map, #deployments-map {
@@ -286,6 +280,29 @@ p.companies-description {
     display: block;
 }
 
-.sidewalk {
-    width: 50vw;
+@media only screen and (max-width: 480px) {
+    .drive_board, .trello_board, .full_chart, .presentations, .slideshow {
+        display: none;
+    }
+
+    #partner-map, #partner-map-navigation {
+        display: none;
+    }
+
+    #logo-image {
+        display: block;
+    }
+        #logo-image img {
+            width: 90vw;
+        }
+
+    .slack {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    #logo-image {
+        display: none;
+    }
 }
