@@ -280,7 +280,7 @@ p.companies-description {
     display: block;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 736px) {
     .drive_board, .trello_board, .full_chart, .presentations, .slideshow {
         display: none;
     }
@@ -301,7 +301,7 @@ p.companies-description {
     }
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 737px) {
     #logo-image {
         display: none;
     }
