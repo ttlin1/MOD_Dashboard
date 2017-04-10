@@ -289,7 +289,7 @@ p.companies-description {
         display: none;
     }
 
-    #logo-image {
+    #logo-image, .presentations-link {
         display: block;
     }
         #logo-image img {
@@ -302,7 +302,7 @@ p.companies-description {
 }
 
 @media only screen and (min-width: 737px) {
-    #logo-image {
+    #logo-image, .presentations-link {
         display: none;
     }
 
