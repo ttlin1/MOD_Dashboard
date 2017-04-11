@@ -14,8 +14,12 @@ def to_unix_time(dt):
     epoch = datetime.datetime.utcfromtimestamp(0)
     return (dt - epoch).total_seconds() * 1000
 
-dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+try:
+    dir = os.path.dirname(os.path.dirname(__file__))
+except:
+    dir = os.getcwd()
 gantt_csv = os.path.join(dir, 'csv/mod_grant_gantt.csv')
+
 df = pd.read_csv(gantt_csv)
 
 # This plotly function does most othe work but it not too
@@ -99,20 +103,20 @@ gray_highlight = {'fillcolor': 'rgb(220, 220, 220)',
   'opacity': 1,
   'layer': 'below',
   'type': 'rect',
-  'x0': '2017-01-01',
-  'x1': '2017-3-31',
+  'x0': '2017-04-01',
+  'x1': '2017-6-30',
   'xref': 'x',
   'y0': -0.5,
   'y1': len(df['Task']) - 1,
   'yref': 'y'}
 fig['layout']['shapes'].append(gray_highlight)
- 
+
 current_q_label = {'ax': 0,
   'ay': -40,
   'font': {'size': 12, 'color': 'rgb(180, 180, 180)'},
   'showarrow': False,
   'text': '<i>Current Quarter</i>',
-  'x': '2017-02-15',
+  'x': '2017-05-15',
 #  'xanchor': 'right',
 #  'xref': 'paper',
   'y': len(df['Task']),
