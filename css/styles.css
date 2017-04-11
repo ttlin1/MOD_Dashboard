@@ -26,12 +26,13 @@ h2.section-title {
     margin: 0 auto;
 }
 .trello_board, .drive_board {
-	width: 80%;
-	height: 735px;
+	width: 80vw;
+	height: 80vh;
     margin: 0 auto;
 }
     .drive_board {
-        height: 675px;
+        width: 80%;
+        height: 735px;
     }
 
 @media only screen and (min-width: 992px) { /* md screens and up */
@@ -51,7 +52,6 @@ h2.section-title {
         height: 675px;
     }
 }
-
 
 .alert, .strata, .tripopt, .tripopt-macro {
     position: relative;
@@ -280,6 +280,41 @@ p.companies-description {
     display: block;
 }
 
-.sidewalk {
-    width: 50vw;
+@media only screen and (max-width: 736px) {
+    .drive_board, .trello_board, .full_chart, .presentations, .slideshow {
+        display: none;
+    }
+
+    #partner-map, #partner-map-navigation {
+        display: none;
+    }
+
+    #logo-image, .presentations-link {
+        display: block;
+    }
+        #logo-image img {
+            width: 90vw;
+        }
+
+    .slack {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 737px) {
+    #logo-image, .presentations-link {
+        display: none;
+    }
+
+    .drive_board, .trello_board, .full_chart, .presentations, .slideshow {
+        display: block;
+    }
+
+    #partner-map, #partner-map-navigation {
+        display: block;
+    }
+
+    .slack {
+        width: 39vw;
+    }
 }
