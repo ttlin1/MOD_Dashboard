@@ -38,4 +38,4 @@ fig = {
 
 
 plotly.offline.plot(fig)
-plotly.plotly.iplot(fig, filename='type of feedback pie')
+#plotly.plotly.iplot(fig, filename='type of feedback pie')
