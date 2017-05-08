@@ -1,11 +1,10 @@
 import get_OTP_feedback_df
-
 import plotly
 import plotly.graph_objs as go
 import os
 from os.path import join
-from palettable.colorbrewer.qualitative import Set3_12
-
+#from palettable.colorbrewer.qualitative import Set3_12
+from bokeh import palettes
 
 root_dir = os.path.dirname(os.path.dirname(__file__))
 in_file = join(root_dir, 'xlsx/OTP_feedback_tracking_cleaned_no_pi.xlsx')
@@ -15,23 +14,16 @@ df = get_OTP_feedback_df.get_feedback_df(in_file)
 
 
 g = df.groupby('Primary Issue')\
-        .apply(lambda df: df['Primary Issue'].resample('1W').count())
-
+        .apply(lambda df: df['Primary Issue'].resample('1M').count())
 g = g.unstack('Primary Issue').fillna(0)
-
-# From color brewer (with red toned down).
-# colors = ['#A0E89C', '#DDA7DD', '#d9d9d9', '#fccde5', '#DBF498',
-#           '#fdb462', '#80b1d3', '#FFAC92', '#bebada', '#ffffb3', '#8dd3c7']
-#
-# Alternative pallete - Rainbow (reversed)
-# ['#F5A872', '#FCC777', '#FBF583', '#ADD68A', '#64C195', '#56C4C5',
-#    '#5C88C5', '#5664AF', '#7E6AAF', '#BD7CB4']
 
 data = []
 counter = 0
 columns = g.columns.values.tolist()
-colors = Set3_12.hex_colors
+
+colors = palettes.Category20[len(columns)]
 colors.reverse()
+
 columns.reverse()
 for column in columns:
     # color = colors[counter]

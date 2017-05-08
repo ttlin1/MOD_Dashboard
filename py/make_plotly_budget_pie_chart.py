@@ -28,8 +28,8 @@ tasks = pie_df['Task'].apply(lambda x: x.split(": ")[-1])
 
 
 # 5F6FC2 = old version of color 3
-colors = ['#BD7CB4', '#DAADD4', '#6677D0', '#7D89CB', '#56C4C5', '#82DDDD',
-          '#ADD68A', '#CEEAB7', '#FCC777', '#FFD89E', '#FFB19F', '#999999']
+# colors = ['#BD7CB4', '#DAADD4', '#6677D0', '#7D89CB', '#56C4C5', '#82DDDD',
+#           '#ADD68A', '#CEEAB7', '#FCC777', '#FFD89E', '#FFB19F', '#999999']
 
 money_text = pie_df['USD'].apply(lambda x: '${:,}'.format(x))\
 

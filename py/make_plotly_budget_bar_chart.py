@@ -89,4 +89,4 @@ layout = go.Layout(
 fig = go.Figure(data=data, layout=layout)
 
 plotly.offline.plot(fig)
-plotly.plotly.iplot(fig, filename='MOD-budget-h-bar')
+#plotly.plotly.iplot(fig, filename='MOD-budget-h-bar')

@@ -2,7 +2,7 @@ import get_OTP_feedback_df
 import plotly
 import os
 from os.path import join
-from palettable.colorbrewer.qualitative import Set3_12
+from bokeh import palettes
 
 root_dir = os.path.dirname(os.path.dirname(__file__))
 in_file = join(root_dir, 'xlsx/OTP_feedback_tracking_cleaned_no_pi.xlsx')
@@ -15,7 +15,7 @@ labs = x.index.tolist()
 vals = [item for sublist in x.values for item in sublist]
 val_text = ["Total count: " + str(val) for val in vals]
 
-colors = Set3_12.hex_colors
+colors = palettes.Category20[len(vals)]
 
 fig = {
     'data': [{'labels': labs,
@@ -36,6 +36,5 @@ fig = {
         }
      }
 
-
 plotly.offline.plot(fig)
-#plotly.plotly.iplot(fig, filename='type of feedback pie')
+plotly.plotly.iplot(fig, filename='type of feedback pie')
